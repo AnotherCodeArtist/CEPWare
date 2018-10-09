@@ -1,5 +1,5 @@
 # CEPWare
-Integrating Apache FINK Complex Event Processing and FIWARE
+Integrating Apache FLINK Complex Event Processing and FIWARE
 
 # Teammembers
 @GregorFernbach
