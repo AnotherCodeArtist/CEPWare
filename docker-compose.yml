@@ -4,15 +4,18 @@ mongo:
     container_name: mongo
     ports:
         - "27017:27017"
-    command: --bind_ip_all --smallfiles
+    command: --bind_ip_all --smallfiles    
+    volumes:
+        - mongoVol:/data/configdb
+        - mongoVol:/data/db
 orion:
    image: fiware/orion
    hostname: orion
    container_name: orion
    links:
-     - mongo
+        - mongo
    ports:
-     - "1026:1026"
+        - "1026:1026"
    command: -dbhost mongo
 cygnus:
     image: fiware/cygnus-ngsi:latest
@@ -30,3 +33,26 @@ cygnus:
         - "CYGNUS_LOG_LEVEL=DEBUG"
         - "CYGNUS_SERVICE_PORT=5050"
         - "CYGNUS_API_PORT=5080"
+        
+jobmanager:
+    image: flink:latest
+    expose:
+      - "6123"
+    ports:
+      - "8081:8081"
+    command: jobmanager
+    environment:
+      - JOB_MANAGER_RPC_ADDRESS=jobmanager
+      
+taskmanager:
+    image: flink:latest
+    expose:
+      - "6121"
+      - "6122"
+    links:
+      - jobmanager
+    command: taskmanager
+    links:
+      - "jobmanager:jobmanager"
+    environment:
+      - JOB_MANAGER_RPC_ADDRESS=jobmanager
