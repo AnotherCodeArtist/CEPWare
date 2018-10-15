@@ -5,6 +5,9 @@ mongo:
     ports:
         - "27017:27017"
     command: --bind_ip_all --smallfiles
+    volumes:
+        - mongoVol:/data/configdb
+        - mongoVol:/data/db
 orion:
    image: fiware/orion
    hostname: orion
