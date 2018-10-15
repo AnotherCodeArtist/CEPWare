@@ -1,13 +1,13 @@
 mongo:
-    image: mongo:3.6
-    hostname: mongo
-    container_name: mongo
-    ports:
-        - "27017:27017"
-    command: --bind_ip_all --smallfiles
-    volumes:
-        - mongoVol:/data/configdb
-        - mongoVol:/data/db
+	image: mongo:3.6
+	hostname: mongo
+	container_name: mongo
+	ports:
+		- "27017:27017"
+	command: --bind_ip_all --smallfiles
+	volumes:
+		- mongoVol:/data/configdb
+		- mongoVol:/data/db
 orion:
    image: fiware/orion
    hostname: orion
@@ -18,18 +18,18 @@ orion:
         - "1026:1026"
    command: -dbhost mongo
 cygnus:
-    image: fiware/cygnus-ngsi:latest
-    hostname: cygnus
-    container_name: cygnus
-    links:
-        - mongo
-    expose:
-        - "5080"
-    ports:
-        - "5050:5050"
-        - "5080:5080"
-    environment:
-        - "CYGNUS_MONGO_HOSTS=mongo:27017"
-        - "CYGNUS_LOG_LEVEL=DEBUG"
-        - "CYGNUS_SERVICE_PORT=5050"
-        - "CYGNUS_API_PORT=5080"
+	image: fiware/cygnus-ngsi:latest
+	hostname: cygnus
+	container_name: cygnus
+	links:
+		- mongo
+	expose:
+		- "5080"
+	ports:
+		- "5050:5050"
+		- "5080:5080"
+	environment:
+		- "CYGNUS_MONGO_HOSTS=mongo:27017"
+		- "CYGNUS_LOG_LEVEL=DEBUG"
+		- "CYGNUS_SERVICE_PORT=5050"
+		- "CYGNUS_API_PORT=5080"
