@@ -32,8 +32,7 @@ cygnus:
         - "CYGNUS_MONGO_HOSTS=mongo:27017"
         - "CYGNUS_LOG_LEVEL=DEBUG"
         - "CYGNUS_SERVICE_PORT=5050"
-        - "CYGNUS_API_PORT=5080"
-        
+        - "CYGNUS_API_PORT=5080"        
 jobmanager:
     image: flink:latest
     expose:
