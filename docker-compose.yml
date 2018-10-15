@@ -13,9 +13,9 @@ orion:
    hostname: orion
    container_name: orion
    links:
-     - mongo
+        - mongo
    ports:
-     - "1026:1026"
+        - "1026:1026"
    command: -dbhost mongo
 cygnus:
     image: fiware/cygnus-ngsi:latest
