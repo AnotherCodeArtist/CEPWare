@@ -1,0 +1,95 @@
+[
+    {
+        "id": "b4806298.3a34d",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "138536db.37b739",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "mosquitto",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "3fe6288.c7d67d8",
+        "type": "inject",
+        "z": "b4806298.3a34d",
+        "name": "",
+        "topic": "",
+        "payload": "{\"id\":\"1\",\"type\":\"flat\",\"address\":{\"type\":\"PostalAddress\",\"value\":{\"city\":\"Graz\",\"postalCode\":\"8010\",\"street\":\"Geidorfplatz\",\"houseNumber\":\"3\",\"floor\":\"4\",\"doorNumber\":\"2\"}},\"temperature\":{\"type\":\"temperatureDegrees\",\"value\":{\"unit\":\"celsius\",\"degrees\":\"22\"}}}",
+        "payloadType": "json",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 150,
+        "y": 260,
+        "wires": [
+            [
+                "18498673.28bb3a"
+            ]
+        ]
+    },
+    {
+        "id": "daf09362.cdd77",
+        "type": "mqtt out",
+        "z": "b4806298.3a34d",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "broker": "138536db.37b739",
+        "x": 600,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "bb1c1068.ddc68",
+        "type": "debug",
+        "z": "b4806298.3a34d",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 620,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "18498673.28bb3a",
+        "type": "function",
+        "z": "b4806298.3a34d",
+        "name": "",
+        "func": "var jsonCont = msg.payload;\n\nvar count = context.get('count')||0;\ncount++;\ncontext.set('count',count);\n\njsonCont.id = 1+count;\njsonCont.temperature.value.degrees = Math.floor(Math.random()*(50-18)+18);\nmsg.payload = jsonCont;\nnode.warn(jsonCont.temperature.value.degrees);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 370,
+        "y": 260,
+        "wires": [
+            [
+                "daf09362.cdd77",
+                "bb1c1068.ddc68"
+            ]
+        ]
+    }
+]
