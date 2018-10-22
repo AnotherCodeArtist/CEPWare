@@ -44,7 +44,7 @@ mosquitto:
         - "1883:1883"
         - "9001:9001"
 idas:
-   image: telefonicaiot/iotagent-ul
+   image: telefonicaiot/iotagent-json
    hostname: idas
    container_name: idas
    links:
