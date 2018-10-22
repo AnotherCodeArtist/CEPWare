@@ -1,0 +1,17 @@
+{
+    "id": "R1",
+    "type": "Room",
+    "temperature": {
+		"type": "Number",
+		"value": 23
+		"unit": {
+			"type": "Text",
+			"value": "Degrees Celsius"
+		}
+	}
+	"roomType" : {
+		"type": "Text",
+		"value": "Living Room"
+	}
+}
+    
