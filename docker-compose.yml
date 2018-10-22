@@ -91,3 +91,9 @@ taskmanager:
       - "jobmanager:jobmanager"
     environment:
       - JOB_MANAGER_RPC_ADDRESS=jobmanager
+nodered:
+    image: nodered/node-red-docker
+    ports:
+        - "1880:1880"
+    links:
+        - mosquitto
