@@ -80,7 +80,7 @@
         "type": "function",
         "z": "b4806298.3a34d",
         "name": "",
-        "func": "var jsonCont = msg.payload;\n\nvar count = context.get('count')||0;\ncount++;\ncontext.set('count',count);\n\njsonCont.id = 1+count;\njsonCont.temperature.value.degrees = Math.floor(Math.random()*(50-18)+18);\nmsg.payload = jsonCont;\nnode.warn(jsonCont.temperature.value.degrees);\nreturn msg;",
+        "func": "var jsonCont = msg.payload;\n\nvar count = context.get('count')||0;\ncount++;\ncontext.set('count',count);\n\njsonCont.id = 1+count;\njsonCont.temperature.value.degrees = Math.floor(Math.random()*(50-18)+18);\nmsg.payload = jsonCont;\nnode.warn(jsonCont.temperature.value.degrees);\nmsg.topic = jsonCont.type + \" \" + jsonCont.id;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 370,
