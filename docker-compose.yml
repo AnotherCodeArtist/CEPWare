@@ -69,6 +69,7 @@ idas:
     - "IOTA_PROVIDER_URL=http://idas:4041"
     - "IOTA_MQTT_HOST=mosquitto"
     - "IOTA_MQTT_PORT=1883"
+    - "CYGNUS_API_PORT=5080"        
 jobmanager:
     image: flink:latest
     expose:
