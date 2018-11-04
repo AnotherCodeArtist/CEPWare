@@ -1,0 +1,251 @@
+{
+	"info": {
+		"_postman_id": "d5e0b9c8-c6b4-487b-841e-b040ecb826e3",
+		"name": "ORION_create_Entities",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST_add_sensor_R1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "fiware-service",
+						"type": "text",
+						"value": "cepware"
+					},
+					{
+						"key": "fiware-servicepath",
+						"type": "text",
+						"value": "/rooms"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"R1\",\r\n    \"type\": \"Room\",\r\n    \"temperature\": {\r\n\t\t\"type\" : \"Float\",\r\n\t\t\"value\": 22\r\n\t}\r\n}\r\n    \r\n    "
+				},
+				"url": {
+					"raw": "http://localhost:1026/v2/entities",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1026",
+					"path": [
+						"v2",
+						"entities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST_add_sensor_R2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "fiware-service",
+						"type": "text",
+						"value": "cepware"
+					},
+					{
+						"key": "fiware-servicepath",
+						"type": "text",
+						"value": "/rooms"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"R2\",\r\n    \"type\": \"Room\",\r\n    \"temperature\": {\r\n\t\t\"type\" : \"Float\",\r\n\t\t\"value\": 22\r\n\t}\r\n}\r\n    \r\n    "
+				},
+				"url": {
+					"raw": "http://localhost:1026/v2/entities",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1026",
+					"path": [
+						"v2",
+						"entities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST_add_sensor_R3",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "fiware-service",
+						"type": "text",
+						"value": "cepware"
+					},
+					{
+						"key": "fiware-servicepath",
+						"type": "text",
+						"value": "/rooms"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"R3\",\r\n    \"type\": \"Room\",\r\n    \"temperature\": {\r\n\t\t\"type\" : \"Float\",\r\n\t\t\"value\": 22.5\r\n\t}\r\n}\r\n    \r\n    "
+				},
+				"url": {
+					"raw": "http://localhost:1026/v2/entities",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1026",
+					"path": [
+						"v2",
+						"entities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST_add_sensor_R4",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "fiware-service",
+						"type": "text",
+						"value": "cepware"
+					},
+					{
+						"key": "fiware-servicepath",
+						"type": "text",
+						"value": "/rooms"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"R4\",\r\n    \"type\": \"Room\",\r\n    \"temperature\": {\r\n\t\t\"type\" : \"Float\",\r\n\t\t\"value\": 23.1\r\n\t}\r\n}\r\n    \r\n    "
+				},
+				"url": {
+					"raw": "http://localhost:1026/v2/entities",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1026",
+					"path": [
+						"v2",
+						"entities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST_add_sensor_R5",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "fiware-service",
+						"type": "text",
+						"value": "cepware"
+					},
+					{
+						"key": "fiware-servicepath",
+						"type": "text",
+						"value": "/rooms"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"R5\",\r\n    \"type\": \"Room\",\r\n    \"temperature\": {\r\n\t\t\"type\" : \"Float\",\r\n\t\t\"value\": 22.9\r\n\t}\r\n}\r\n    \r\n    "
+				},
+				"url": {
+					"raw": "http://localhost:1026/v2/entities",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1026",
+					"path": [
+						"v2",
+						"entities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET_all_sensor_data",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "fiware-service",
+						"value": "cepware",
+						"type": "text"
+					},
+					{
+						"key": "fiware-servicepath",
+						"value": "/rooms",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:1026/v2/entities/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1026",
+					"path": [
+						"v2",
+						"entities",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

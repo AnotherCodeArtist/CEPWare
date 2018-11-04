@@ -1,0 +1,255 @@
+{
+	"info": {
+		"_postman_id": "5e999bdd-9a04-463f-a9ea-ec86ce466636",
+		"name": "IDAS_update_Context_Data",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST_update_R1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-type",
+						"value": "text/plain",
+						"type": "text"
+					},
+					{
+						"key": "Fiware-Service",
+						"value": "cepware",
+						"type": "text"
+					},
+					{
+						"key": "Fiware-Service",
+						"value": "/rooms",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "t|13"
+				},
+				"url": {
+					"raw": "http://localhost:7896/iot/d?i=IoT-R1&k=4jggokgpepnvsb2uv4s40d59ov",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7896",
+					"path": [
+						"iot",
+						"d"
+					],
+					"query": [
+						{
+							"key": "i",
+							"value": "IoT-R1"
+						},
+						{
+							"key": "k",
+							"value": "4jggokgpepnvsb2uv4s40d59ov"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST_update_R2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-type",
+						"value": "text/plain",
+						"type": "text"
+					},
+					{
+						"key": "Fiware-Service",
+						"value": "cepware",
+						"type": "text"
+					},
+					{
+						"key": "Fiware-Service",
+						"value": "/rooms",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "R1|13"
+				},
+				"url": {
+					"raw": "http://localhost:7896/d?i=R1&k=4jggokgpepnvsb2uv4s40d59ov",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7896",
+					"path": [
+						"d"
+					],
+					"query": [
+						{
+							"key": "i",
+							"value": "R1"
+						},
+						{
+							"key": "k",
+							"value": "4jggokgpepnvsb2uv4s40d59ov"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST_update_R3",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-type",
+						"value": "text/plain",
+						"type": "text"
+					},
+					{
+						"key": "Fiware-Service",
+						"value": "cepware",
+						"type": "text"
+					},
+					{
+						"key": "Fiware-Service",
+						"value": "/rooms",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "R1|13"
+				},
+				"url": {
+					"raw": "http://localhost:7896/d?i=R1&k=4jggokgpepnvsb2uv4s40d59ov",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7896",
+					"path": [
+						"d"
+					],
+					"query": [
+						{
+							"key": "i",
+							"value": "R1"
+						},
+						{
+							"key": "k",
+							"value": "4jggokgpepnvsb2uv4s40d59ov"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST_update_R4",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-type",
+						"value": "text/plain",
+						"type": "text"
+					},
+					{
+						"key": "Fiware-Service",
+						"value": "cepware",
+						"type": "text"
+					},
+					{
+						"key": "Fiware-Service",
+						"value": "/rooms",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "R1|13"
+				},
+				"url": {
+					"raw": "http://localhost:7896/d?i=R1&k=4jggokgpepnvsb2uv4s40d59ov",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7896",
+					"path": [
+						"d"
+					],
+					"query": [
+						{
+							"key": "i",
+							"value": "R1"
+						},
+						{
+							"key": "k",
+							"value": "4jggokgpepnvsb2uv4s40d59ov"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST_update_R5",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-type",
+						"value": "text/plain",
+						"type": "text"
+					},
+					{
+						"key": "Fiware-Service",
+						"value": "cepware",
+						"type": "text"
+					},
+					{
+						"key": "Fiware-Service",
+						"value": "/rooms",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "R1|13"
+				},
+				"url": {
+					"raw": "http://localhost:7896/d?i=R1&k=4jggokgpepnvsb2uv4s40d59ov",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7896",
+					"path": [
+						"d"
+					],
+					"query": [
+						{
+							"key": "i",
+							"value": "R1"
+						},
+						{
+							"key": "k",
+							"value": "4jggokgpepnvsb2uv4s40d59ov"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,274 @@
+{
+	"info": {
+		"_postman_id": "ab2a59b2-0ac0-432a-b7d3-648a7bd7ac64",
+		"name": "IDAS_Register_ServiceGroup&Sensors",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST_provisioning_service_group",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "fiware-service",
+						"value": "cepware",
+						"type": "text"
+					},
+					{
+						"key": "fiware-servicepath",
+						"value": "/rooms",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"services\": [\r\n   {\r\n     \"apikey\":      \"4jggokgpepnvsb2uv4s40d59ov\",\r\n     \"cbroker\":     \"http://localhost:1026\",\r\n     \"entity_type\": \"Room\",\r\n     \"resource\":    \"\"\r\n   } ]\r\n }\r\n "
+				},
+				"url": {
+					"raw": "http://localhost:4041/iot/services",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4041",
+					"path": [
+						"iot",
+						"services"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST_register_sensor_R1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Auth-Token",
+						"value": "a-token",
+						"type": "text"
+					},
+					{
+						"key": "Fiware-Service",
+						"value": "cepware",
+						"type": "text"
+					},
+					{
+						"key": "Fiware-ServicePath",
+						"value": "/rooms",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"devices\": [\r\n  { \"device_id\": \"IoT-R1\",\r\n    \"entity_name\": \"R1\",\r\n    \"entity_type\": \"Room\",\r\n    \"timezone\": \"Europe/Madrid\",\r\n    \"attributes\": [\r\n    { \"object_id\": \"t\",\r\n      \"name\": \"temperature\",\r\n      \"type\": \"float\"\r\n    } ],\r\n \"static_attributes\": [\r\n    { \"name\": \"att_name\",\r\n      \"type\": \"string\",\r\n      \"value\": \"value\"\r\n    }]}]}"
+				},
+				"url": {
+					"raw": "http://localhost:4041/iot/devices",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4041",
+					"path": [
+						"iot",
+						"devices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST_register_sensor_R2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Auth-Token",
+						"type": "text",
+						"value": "a-token"
+					},
+					{
+						"key": "Fiware-Service",
+						"type": "text",
+						"value": "cepware"
+					},
+					{
+						"key": "Fiware-ServicePath",
+						"type": "text",
+						"value": "/rooms"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"devices\": [\r\n  { \"device_id\": \"IoT-R2\",\r\n    \"entity_name\": \"R2\",\r\n    \"entity_type\": \"Room\",\r\n    \"timezone\": \"Europe/Madrid\",\r\n    \"attributes\": [\r\n    { \"object_id\": \"t\",\r\n      \"name\": \"temperature\",\r\n      \"type\": \"float\"\r\n    } ],\r\n \"static_attributes\": [\r\n    { \"name\": \"att_name\",\r\n      \"type\": \"string\",\r\n      \"value\": \"value\"\r\n    }]}]}"
+				},
+				"url": {
+					"raw": "http://localhost:4041/iot/devices",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4041",
+					"path": [
+						"iot",
+						"devices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST_register_sensor_R3",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Auth-Token",
+						"value": "a-token",
+						"type": "text"
+					},
+					{
+						"key": "Fiware-Service",
+						"value": "cepware",
+						"type": "text"
+					},
+					{
+						"key": "Fiware-ServicePath",
+						"value": "/rooms",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"devices\": [\r\n  { \"device_id\": \"IoT-R3\",\r\n    \"entity_name\": \"R3\",\r\n    \"entity_type\": \"Room\",\r\n    \"timezone\": \"Europe/Madrid\",\r\n    \"attributes\": [\r\n    { \"object_id\": \"t\",\r\n      \"name\": \"temperature\",\r\n      \"type\": \"float\"\r\n    } ],\r\n \"static_attributes\": [\r\n    { \"name\": \"att_name\",\r\n      \"type\": \"string\",\r\n      \"value\": \"value\"\r\n    }]}]}"
+				},
+				"url": {
+					"raw": "http://localhost:4041/iot/devices",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4041",
+					"path": [
+						"iot",
+						"devices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST_register_sensor_R4",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Auth-Token",
+						"value": "a-token",
+						"type": "text"
+					},
+					{
+						"key": "Fiware-Service",
+						"value": "cepware",
+						"type": "text"
+					},
+					{
+						"key": "Fiware-ServicePath",
+						"value": "/rooms",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"devices\": [\r\n  { \"device_id\": \"IoT-R4\",\r\n    \"entity_name\": \"R4\",\r\n    \"entity_type\": \"Room\",\r\n    \"timezone\": \"Europe/Madrid\",\r\n    \"attributes\": [\r\n    { \"object_id\": \"t\",\r\n      \"name\": \"temperature\",\r\n      \"type\": \"float\"\r\n    } ],\r\n \"static_attributes\": [\r\n    { \"name\": \"att_name\",\r\n      \"type\": \"string\",\r\n      \"value\": \"value\"\r\n    }]}]}"
+				},
+				"url": {
+					"raw": "http://localhost:4041/iot/devices",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4041",
+					"path": [
+						"iot",
+						"devices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST_register_sensor_R5",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Auth-Token",
+						"value": "a-token",
+						"type": "text"
+					},
+					{
+						"key": "Fiware-Service",
+						"value": "cepware",
+						"type": "text"
+					},
+					{
+						"key": "Fiware-ServicePath",
+						"value": "/rooms",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"devices\": [\r\n  { \"device_id\": \"IoT-R5\",\r\n    \"entity_name\": \"R5\",\r\n    \"entity_type\": \"Room\",\r\n    \"timezone\": \"Europe/Madrid\",\r\n    \"attributes\": [\r\n    { \"object_id\": \"t\",\r\n      \"name\": \"temperature\",\r\n      \"type\": \"float\"\r\n    } ],\r\n \"static_attributes\": [\r\n    { \"name\": \"att_name\",\r\n      \"type\": \"string\",\r\n      \"value\": \"value\"\r\n    }]}]}"
+				},
+				"url": {
+					"raw": "http://localhost:4041/iot/devices",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4041",
+					"path": [
+						"iot",
+						"devices"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
