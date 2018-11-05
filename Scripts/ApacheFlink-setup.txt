@@ -1,0 +1,12 @@
+To make a new scala project template follow this link and use the MAVEN version:
+https://ci.apache.org/projects/flink/flink-docs-release-1.6/quickstart/scala_api_quickstart.html
+
+Then install the Apache-Orion-Connector
+To install the Apache-Orion-Connector go to your Project where the your scala intelliJ Project lies and execute the command below.
+
+
+mvn install:install-file -Dfile=C:\$(PATH_to_CEPWARE)\CEPWARE\Apache_Flink\orion.flink.connector-1.0.jar -DgroupId=org.fiware.cosmos -DartifactId=orion.flink.connector -Dversion=1.0 -Dpackaging=jar
+
+For examples see this link: https://github.com/ging/fiware-cosmos-orion-flink-connector-examples
+For general Information see this link: https://github.com/ging/fiware-cosmos-orion-flink-connector/
+For the jar file of the connector go here: https://github.com/ging/fiware-cosmos-orion-flink-connector/releases/tag/1.0

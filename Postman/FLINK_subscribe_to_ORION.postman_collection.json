@@ -1,0 +1,85 @@
+{
+	"info": {
+		"_postman_id": "82e26202-7d56-4d75-83c3-33e5c93ef2cd",
+		"name": "FLINK_subscribe_to_ORION",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST-2_subscribe_to_ORION",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "fiware-service",
+						"value": "cepware",
+						"type": "text"
+					},
+					{
+						"key": "fiware-servicepath",
+						"value": "/rooms",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"description\": \"A subscription to get info about the tempearture of the rooms\",\r\n  \"subject\": {\r\n\t\"entities\": [\r\n  \t\t{\r\n    \t\"idPattern\": \".*\"\r\n  \t\t}\r\n\t]\r\n  },\r\n  \"notification\": {\r\n\t\"http\": {\r\n  \t\"url\": \"http://localhost:9001/notify\"\r\n\t},\r\n\t\"attrs\": [\r\n  \t\"temperature\"\r\n\t]\r\n  },\r\n  \"throttling\": 5\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:1026/v2/subscriptions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1026",
+					"path": [
+						"v2",
+						"subscriptions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET_Check_Subscription",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "fiware-service",
+						"value": "cepware",
+						"type": "text"
+					},
+					{
+						"key": "fiware-servicepath",
+						"value": "/rooms",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:1026/v2/subscriptions/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1026",
+					"path": [
+						"v2",
+						"subscriptions",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

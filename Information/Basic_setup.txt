@@ -1,0 +1,26 @@
+This document describes how to setup the whole system. Note that this approach here is only
+temporary and will be replaced by NodeRED integration. Meanwhile we will use the system by means
+of POSTMAN requests.
+
+Firstly, to get the basic environment up and running you have to run the docker-compose file
+with "docker-compose up" in the directory where this file is stored. The first time this can
+take up to 15 Minutes.
+
+Secondly, when the environment is up and running you have to open Postman and import the all collections.
+Afterwards you have to send the requests in the order listed below.
+1) Open the collection "CYGNUS_subscribe_to_ORION" and send request "POST-1_subscribe_to_ORION". This will
+	enable the subscription from CYGNUS to ORION. You can check if the subscription was successful by
+	sending the "GET_Check_Subsciption" request. If the status indicates "active" then the subscription
+	was successful.
+2) Open the collection "FLINK_subscribe_to_ORION" and send request "POST-2_subscribe_to_ORION". This will
+	enable the subscription to ORION. You can check if the subscription was successful by
+	sending the "GET_Check_Subsciption" request. If the status indicates "active" then the subscription
+	was successful.
+3) Open the collection "ORION_create_Entities" and send all requests from sensor R1 to R5 "POST_add_sensor_R1". This will
+	create the entities in ORION. You can check if the entities were successfully created by
+	sending the "GET_all_sensor_data" request.
+4) Open the collection "IDAS_Register_ServiceGroup&Sensors" and send the requests "POST_provisioning_service_group". This will
+	provision the service group in the IDAS component. Afterwards you have to send all "POST_register_sensor_RX" requests to
+	register the sensors (entities) in the IDAS component.
+
+Finally, you can use the collection "IDAS_update_Context_Data" to send requests to update the temperature to IDAS.
