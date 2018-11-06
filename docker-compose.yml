@@ -33,23 +33,12 @@ cygnus:
         - "CYGNUS_LOG_LEVEL=DEBUG"
         - "CYGNUS_SERVICE_PORT=5050"
         - "CYGNUS_API_PORT=5080"
-mosquitto:
-    image: eclipse-mosquitto
-    hostname: mosquitto
-    container_name: mosquitto
-    expose:
-        - "1883"
-        - "9001"
-    ports:
-        - "1883:1883"
-        - "9001:9001"
 idas:
    image: telefonicaiot/iotagent-ul
    hostname: idas
    container_name: idas
    links:
      - orion
-     - mosquitto
      - mongo
    expose:
      - "4041"
@@ -67,8 +56,6 @@ idas:
     - "IOTA_MONGO_PORT=27017"
     - "IOTA_MONGO_DB=idas"
     - "IOTA_PROVIDER_URL=http://idas:4041"
-    - "IOTA_MQTT_HOST=mosquitto"
-    - "IOTA_MQTT_PORT=1883"
     - "CYGNUS_API_PORT=5080"        
 jobmanager:
     image: flink:latest
@@ -95,5 +82,3 @@ nodered:
     image: nodered/node-red-docker
     ports:
         - "1880:1880"
-    links:
-        - mosquitto
