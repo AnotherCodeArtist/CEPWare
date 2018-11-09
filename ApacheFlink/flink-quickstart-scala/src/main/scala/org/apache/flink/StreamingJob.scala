@@ -24,17 +24,17 @@ import org.apache.flink.streaming.api.windowing.time.Time
 import org.fiware.cosmos.orion.flink.connector.{OrionSource}
 
 /**
- * Skeleton for a Flink Streaming Job.
- *
- * For a tutorial how to write a Flink streaming application, check the
- * tutorials and examples on the <a href="http://flink.apache.org/docs/stable/">Flink Website</a>.
- *
- * To package your application into a JAR file for execution, run
- * 'mvn clean package' on the command line.
- *
- * If you change the name of the main class (with the public static void main(String[] args))
- * method, change the respective entry in the POM.xml file (simply search for 'mainClass').
- */
+  * Skeleton for a Flink Streaming Job.
+  *
+  * For a tutorial how to write a Flink streaming application, check the
+  * tutorials and examples on the <a href="http://flink.apache.org/docs/stable/">Flink Website</a>.
+  *
+  * To package your application into a JAR file for execution, run
+  * 'mvn clean package' on the command line.
+  *
+  * If you change the name of the main class (with the public static void main(String[] args))
+  * method, change the respective entry in the POM.xml file (simply search for 'mainClass').
+  */
 object StreamingJob {
   def main(args: Array[String]) {
     // set up the streaming execution environment
