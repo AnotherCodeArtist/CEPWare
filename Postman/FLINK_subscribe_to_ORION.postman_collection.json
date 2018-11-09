@@ -28,7 +28,47 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"description\": \"A subscription to get info about the tempearture of the rooms\",\r\n  \"subject\": {\r\n\t\"entities\": [\r\n  \t\t{\r\n    \t\"idPattern\": \".*\"\r\n  \t\t}\r\n\t]\r\n  },\r\n  \"notification\": {\r\n\t\"http\": {\r\n  \t\"url\": \"http://localhost:9001/notify\"\r\n\t},\r\n\t\"attrs\": [\r\n  \t\"temperature\"\r\n\t]\r\n  },\r\n  \"throttling\": 5\r\n}"
+					"raw": "{\r\n  \"description\": \"A subscription to get info about the tempearture of the rooms\",\r\n  \"subject\": {\r\n\t\"entities\": [\r\n  \t\t{\r\n    \t\"idPattern\": \".*\"\r\n  \t\t}\r\n\t]\r\n  },\r\n  \"notification\": {\r\n\t\"http\": {\r\n  \t\"url\": \"http://taskmanager:9001/notify\"\r\n\t},\r\n\t\"attrs\": [\r\n  \t\"temperature\"\r\n\t]\r\n  },\r\n  \"throttling\": 5\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:1026/v2/subscriptions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1026",
+					"path": [
+						"v2",
+						"subscriptions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST-2_subscribe_to_ORION_only_R1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "fiware-service",
+						"type": "text",
+						"value": "cepware"
+					},
+					{
+						"key": "fiware-servicepath",
+						"type": "text",
+						"value": "/rooms"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"description\": \"A subscription to get info about the tempearture of R1\",\r\n  \"subject\": {\r\n\t\"entities\": [\r\n  \t\t{\r\n    \t\"id\": \"R1\",\r\n    \t\"type\": \"Room\"\r\n  \t\t}\r\n\t]\r\n  },\r\n  \"notification\": {\r\n\t\"http\": {\r\n  \t\"url\": \"http://localhost:9001/notify\"\r\n\t},\r\n\t\"attrs\": [\r\n  \t\"temperature\"\r\n\t]\r\n  },\r\n  \"throttling\": 5\r\n}"
 				},
 				"url": {
 					"raw": "http://localhost:1026/v2/subscriptions",

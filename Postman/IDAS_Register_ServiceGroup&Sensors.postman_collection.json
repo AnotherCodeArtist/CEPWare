@@ -28,7 +28,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"services\": [\r\n   {\r\n     \"apikey\":      \"4jggokgpepnvsb2uv4s40d59ov\",\r\n     \"cbroker\":     \"http://localhost:1026\",\r\n     \"entity_type\": \"Room\",\r\n     \"resource\":    \"\"\r\n   } ]\r\n }\r\n "
+					"raw": "{\"services\": [\r\n   {\r\n     \"apikey\":      \"4jggokgpepnvsb2uv4s40d59ov\",\r\n     \"cbroker\":     \"http://orion:1026\",\r\n     \"entity_type\": \"Room\",\r\n     \"resource\":    \"\"\r\n   } ]\r\n }\r\n "
 				},
 				"url": {
 					"raw": "http://localhost:4041/iot/services",

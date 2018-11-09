@@ -21,7 +21,7 @@
 						"type": "text"
 					},
 					{
-						"key": "Fiware-Service",
+						"key": "Fiware-Servicepath",
 						"value": "/rooms",
 						"type": "text"
 					}
@@ -71,29 +71,30 @@
 						"type": "text"
 					},
 					{
-						"key": "Fiware-Service",
+						"key": "Fiware-Servicepath",
 						"value": "/rooms",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "R1|13"
+					"raw": "t|13"
 				},
 				"url": {
-					"raw": "http://localhost:7896/d?i=R1&k=4jggokgpepnvsb2uv4s40d59ov",
+					"raw": "http://localhost:7896/iot/d?i=IoT-R2&k=4jggokgpepnvsb2uv4s40d59ov",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "7896",
 					"path": [
+						"iot",
 						"d"
 					],
 					"query": [
 						{
 							"key": "i",
-							"value": "R1"
+							"value": "IoT-R2"
 						},
 						{
 							"key": "k",
@@ -120,29 +121,30 @@
 						"type": "text"
 					},
 					{
-						"key": "Fiware-Service",
+						"key": "Fiware-Servicepath",
 						"value": "/rooms",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "R1|13"
+					"raw": "t|13"
 				},
 				"url": {
-					"raw": "http://localhost:7896/d?i=R1&k=4jggokgpepnvsb2uv4s40d59ov",
+					"raw": "http://localhost:7896/iot/d?i=IoT-R3&k=4jggokgpepnvsb2uv4s40d59ov",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "7896",
 					"path": [
+						"iot",
 						"d"
 					],
 					"query": [
 						{
 							"key": "i",
-							"value": "R1"
+							"value": "IoT-R3"
 						},
 						{
 							"key": "k",
@@ -169,29 +171,30 @@
 						"type": "text"
 					},
 					{
-						"key": "Fiware-Service",
+						"key": "Fiware-Servicepath",
 						"value": "/rooms",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "R1|13"
+					"raw": "t|13"
 				},
 				"url": {
-					"raw": "http://localhost:7896/d?i=R1&k=4jggokgpepnvsb2uv4s40d59ov",
+					"raw": "http://localhost:7896/iot/d?i=IoT-R4&k=4jggokgpepnvsb2uv4s40d59ov",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "7896",
 					"path": [
+						"iot",
 						"d"
 					],
 					"query": [
 						{
 							"key": "i",
-							"value": "R1"
+							"value": "IoT-R4"
 						},
 						{
 							"key": "k",
@@ -218,29 +221,30 @@
 						"type": "text"
 					},
 					{
-						"key": "Fiware-Service",
+						"key": "Fiware-Servicepath",
 						"value": "/rooms",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "R1|13"
+					"raw": "t|13"
 				},
 				"url": {
-					"raw": "http://localhost:7896/d?i=R1&k=4jggokgpepnvsb2uv4s40d59ov",
+					"raw": "http://localhost:7896/iot/d?i=IoT-R5&k=4jggokgpepnvsb2uv4s40d59ov",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "7896",
 					"path": [
+						"iot",
 						"d"
 					],
 					"query": [
 						{
 							"key": "i",
-							"value": "R1"
+							"value": "IoT-R5"
 						},
 						{
 							"key": "k",

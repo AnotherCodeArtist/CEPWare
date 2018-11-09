@@ -1,0 +1,134 @@
+{
+	"info": {
+		"_postman_id": "15a74c2c-9c02-414e-b372-538653d10120",
+		"name": "ORION_update&retrieve_context_data",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET_R1_data",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "fiware-service",
+						"value": "cepware",
+						"type": "text"
+					},
+					{
+						"key": "fiware-servicepath",
+						"value": "/rooms",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:1026/v2/entities/R1?options=keyValues",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1026",
+					"path": [
+						"v2",
+						"entities",
+						"R1"
+					],
+					"query": [
+						{
+							"key": "options",
+							"value": "keyValues"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT_update_existing_flat",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/plain",
+						"disabled": false
+					},
+					{
+						"key": "fiware-service",
+						"value": "cepware",
+						"disabled": false
+					},
+					{
+						"key": "fiware-servicepath",
+						"value": "/rooms",
+						"disabled": false
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "27"
+				},
+				"url": {
+					"raw": "http://localhost:1026/v2/entities/R1/attrs/temperature/value",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1026",
+					"path": [
+						"v2",
+						"entities",
+						"R1",
+						"attrs",
+						"temperature",
+						"value"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET_attributes_for_flat",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "fiware-service",
+						"value": "test",
+						"disabled": false
+					},
+					{
+						"key": "fiware-servicepath",
+						"value": "/",
+						"disabled": false
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:1026/v2/entities/4?options=keyValues",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1026",
+					"path": [
+						"v2",
+						"entities",
+						"4"
+					],
+					"query": [
+						{
+							"key": "options",
+							"value": "keyValues"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
