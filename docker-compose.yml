@@ -1,99 +1,112 @@
-mongo:
-    image: mongo:3.6
-    hostname: mongo
-    container_name: mongo
-    ports:
-        - "27017:27017"
-    command: --bind_ip_all --smallfiles    
-    volumes:
-        - mongoVol:/data/configdb
-        - mongoVol:/data/db
-orion:
-   image: fiware/orion
-   hostname: orion
-   container_name: orion
-   links:
-        - mongo
-   ports:
-        - "1026:1026"
-   command: -dbhost mongo
-cygnus:
-    image: fiware/cygnus-ngsi:latest
-    hostname: cygnus
-    container_name: cygnus
-    links:
-        - mongo
-    expose:
-        - "5080"
-    ports:
-        - "5050:5050"
-        - "5080:5080"
-    environment:
-        - "CYGNUS_MONGO_HOSTS=mongo:27017"
-        - "CYGNUS_LOG_LEVEL=DEBUG"
-        - "CYGNUS_SERVICE_PORT=5050"
+version: "3.7"
+services:
+    mongo:
+        image: mongo:3.6
+        hostname: mongo
+        container_name: mongo
+        ports:
+            - "27017:27017"
+        command: --bind_ip_all --smallfiles 
+        networks:
+            - cepware
+        volumes:
+            - mongoVol:/data/configdb
+            - mongoVol:/data/db
+    orion:
+       image: fiware/orion
+       hostname: orion
+       container_name: orion
+       links:
+            - mongo
+       ports:
+            - "1026:1026"
+       command: -dbhost mongo
+       networks:
+            - cepware
+    cygnus:
+        image: fiware/cygnus-ngsi:latest
+        hostname: cygnus
+        container_name: cygnus
+        links:
+            - mongo
+        expose:
+            - "5080"
+        ports:
+            - "5050:5050"
+            - "5080:5080"
+        environment:
+            - "CYGNUS_MONGO_HOSTS=mongo:27017"
+            - "CYGNUS_LOG_LEVEL=DEBUG"
+            - "CYGNUS_SERVICE_PORT=5050"
+            - "CYGNUS_API_PORT=5080"
+        networks:
+            - cepware
+    idas:
+       image: telefonicaiot/iotagent-ul
+       hostname: idas
+       container_name: idas
+       links:
+         - orion
+         - mongo
+       expose:
+         - "4041"
+       ports:
+         - "7896:7896"
+         - "4041:4041"
+       environment:
+        - "IOTA_CB_HOST=orion"
+        - "IOTA_CB_PORT=1026"
+        - "IOTA_NORTH_PORT=4041"
+        - "IOTA_REGISTRY_TYPE=mongodb"
+        - "IOTA_LOG_LEVEL=DEBUG"
+        - "IOTA_TIMESTAMP=true"
+        - "IOTA_MONGO_HOST=mongo"
+        - "IOTA_MONGO_PORT=27017"
+        - "IOTA_MONGO_DB=idas"
+        - "IOTA_PROVIDER_URL=http://idas:4041"
         - "CYGNUS_API_PORT=5080"
-mosquitto:
-    image: eclipse-mosquitto
-    hostname: mosquitto
-    container_name: mosquitto
-    expose:
-        - "1883"
-        - "9001"
-    ports:
-        - "1883:1883"
-        - "9001:9001"
-idas:
-   image: telefonicaiot/iotagent-ul
-   hostname: idas
-   container_name: idas
-   links:
-     - orion
-     - mosquitto
-     - mongo
-   expose:
-     - "4041"
-   ports:
-     - "7896:7896"
-     - "4041:4041"
-   environment:
-    - "IOTA_CB_HOST=orion"
-    - "IOTA_CB_PORT=1026"
-    - "IOTA_NORTH_PORT=4041"
-    - "IOTA_REGISTRY_TYPE=mongodb"
-    - "IOTA_LOG_LEVEL=DEBUG"
-    - "IOTA_TIMESTAMP=true"
-    - "IOTA_MONGO_HOST=mongo"
-    - "IOTA_MONGO_PORT=27017"
-    - "IOTA_MONGO_DB=idas"
-    - "IOTA_PROVIDER_URL=http://idas:4041"
-    - "IOTA_MQTT_HOST=mosquitto"
-    - "IOTA_MQTT_PORT=1883"
-    - "CYGNUS_API_PORT=5080"        
-jobmanager:
-    image: flink:latest
-    expose:
-      - "6123"
-    ports:
-      - "8081:8081"
-    command: jobmanager
-    environment:
-      - JOB_MANAGER_RPC_ADDRESS=jobmanager
-taskmanager:
-    image: flink:latest
-    expose:
-      - "6121"
-      - "6122"
-    links:
-      - jobmanager
-    command: taskmanager
-    links:
-      - "jobmanager:jobmanager"
-    environment:
-      - JOB_MANAGER_RPC_ADDRESS=jobmanager
-nodered:
-    image: nodered/node-red-docker
-    ports:
-        - "1880:1880"
-    links:
-        - mosquitto
+       networks:
+            - cepware
+    jobmanager:
+        image: flink:latest
+        hostname: jobmanager
+        container_name: jobmanager
+        expose:
+          - "6123"
+        ports:
+          - "8081:8081"
+        command: jobmanager
+        networks:
+            - cepware
+        environment:
+          - JOB_MANAGER_RPC_ADDRESS=jobmanager
+    taskmanager:
+        image: flink:latest
+        hostname: taskmanager
+        container_name: taskmanager
+        expose:
+          - "6121"
+          - "6122"
+        links:
+          - jobmanager
+        command: taskmanager
+        networks:
+            - cepware
+        links:
+          - "jobmanager:jobmanager"
+        environment:
+          - JOB_MANAGER_RPC_ADDRESS=jobmanager
+    nodered:
+        image: nodered/node-red-docker
+        hostname: nodered
+        container_name: nodered
+        ports:
+            - "1880:1880"
+        networks:
+            - cepware
+          
+networks:
+    cepware:
+
+volumes:
+    mongoVol:
