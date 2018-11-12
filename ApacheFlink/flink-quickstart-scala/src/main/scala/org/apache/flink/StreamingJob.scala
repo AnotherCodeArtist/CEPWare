@@ -22,6 +22,7 @@ import org.apache.flink.streaming.api.scala._
 import org.apache.flink.streaming.api.scala.{StreamExecutionEnvironment, _}
 import org.apache.flink.streaming.api.windowing.time.Time
 import org.fiware.cosmos.orion.flink.connector.{OrionSource}
+import java.io._
 
 /**
   * Skeleton for a Flink Streaming Job.
@@ -35,6 +36,15 @@ import org.fiware.cosmos.orion.flink.connector.{OrionSource}
   * If you change the name of the main class (with the public static void main(String[] args))
   * method, change the respective entry in the POM.xml file (simply search for 'mainClass').
   */
+
+
+
+/**
+  * When Importing the Task in Apache Flink
+  * EntryClass:
+  * org.apache.flink.StreamingJob
+  */
+
 object StreamingJob {
   def main(args: Array[String]) {
     // set up the streaming execution environment
@@ -48,30 +58,24 @@ object StreamingJob {
         new Temp_Node(entity.id, temp)
       })
       .keyBy("id")
-      .timeWindow(Time.seconds(5), Time.seconds(2))
-      .min("temperature")
+      .timeWindow(Time.seconds(45), Time.seconds(30))
+      .max("temperature")
 
-    // Print the results with a single thread, rather than in parallel
-    processedDataStream.print().setParallelism(1)
+
     /*
-     * Here, you can start creating your execution plan for Flink.
-     *
-     * Start with getting some data from the environment, like
-     *  env.readTextFile(textPath);
-     *
-     * then, transform the resulting DataStream[String] using operations
-     * like
-     *   .filter()
-     *   .flatMap()
-     *   .join()
-     *   .group()
-     *
-     * and many more.
-     * Have a look at the programming guide:
-     *
-     * http://flink.apache.org/docs/latest/apis/streaming/index.html
-     *
-     */
+    //Print the results with a single thread, rather than in parallel:
+    processedDataStream.print().setParallelism(1)
+    */
+
+
+
+    /*
+    Writing the Results in a log.txt File
+    Attention: log.txt must not exist before the task is executed
+    */
+    processedDataStream.writeAsText("/tmp/log.txt")
+
+
 
     // execute program
     env.execute("Socket Window NgsiEvent")
