@@ -2,25 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="59e575af-c118-4bc5-8749-0718acf34aa2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../Scripts/dataModel.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Scripts/flows.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/org/apache/flink/StreamingJob.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/org/apache/flink/StreamingJob.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes.1300609199.timestamp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/flink-quickstart-scala-1.0-SNAPSHOT-shaded.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/flink-quickstart-scala-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/flink-quickstart-scala-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/original-flink-quickstart-scala-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/original-flink-quickstart-scala-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Information/ApacheFlink-setup.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Information/Basic_setup.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Information/dataModel.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Postman/CYGNUS.postman_collection.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Postman/ORION.postman_collection.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Scripts/ApacheFlink-setup.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Scripts/docker-clear.ps1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Scripts/nodered-script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../dataModel.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../nodered-script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Setup/Setup.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/../../Setup/Setup.ps1" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -71,13 +53,13 @@
     <session id="-1038466848">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.15" value="1" />
-          <entry key="project.open.time.17" value="1" />
+          <entry key="project.open.time.17" value="2" />
           <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.63" value="1" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -108,7 +90,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/scala/org/apache/flink/StreamingJob.scala">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="36">
-              <caret line="57" column="6" lean-forward="true" selection-start-line="57" selection-start-column="6" selection-end-line="57" selection-end-column="6" />
+              <caret line="57" column="6" selection-start-line="57" selection-start-column="6" selection-end-line="57" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -169,6 +151,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -298,7 +281,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -344,16 +326,18 @@
       <workItem from="1541590404178" duration="168000" />
       <workItem from="1541619515833" duration="789000" />
       <workItem from="1541754112811" duration="120000" />
+      <workItem from="1542092781562" duration="162000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14561000" />
+    <option name="totallyTimeSpent" value="14723000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1293" height="693" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18218623" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1854251" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -414,7 +398,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/scala/org/apache/flink/StreamingJob.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
-          <caret line="57" column="6" lean-forward="true" selection-start-line="57" selection-start-column="6" selection-end-line="57" selection-end-column="6" />
+          <caret line="57" column="6" selection-start-line="57" selection-start-column="6" selection-end-line="57" selection-end-column="6" />
         </state>
       </provider>
     </entry>

@@ -107,7 +107,10 @@
 						"disabled": false
 					}
 				],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost:1026/v2/entities/4?options=keyValues",
 					"protocol": "http",
@@ -125,6 +128,60 @@
 							"key": "options",
 							"value": "keyValues"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT_changeLOGLevelofORION",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:1026/admin/log?level=INFO",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1026",
+					"path": [
+						"admin",
+						"log"
+					],
+					"query": [
+						{
+							"key": "level",
+							"value": "INFO"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET_LogLevel",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:1026/admin/log",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1026",
+					"path": [
+						"admin",
+						"log"
 					]
 				}
 			},

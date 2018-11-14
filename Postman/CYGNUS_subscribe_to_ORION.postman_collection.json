@@ -19,7 +19,10 @@
 						"value": "/rooms"
 					}
 				],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost:1026/v2/subscriptions/",
 					"protocol": "http",

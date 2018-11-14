@@ -211,12 +211,6 @@
 				"method": "GET",
 				"header": [
 					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text",
-						"disabled": true
-					},
-					{
 						"key": "fiware-service",
 						"value": "cepware",
 						"type": "text"

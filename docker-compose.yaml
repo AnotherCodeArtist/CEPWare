@@ -1,32 +1,37 @@
-version: "3.7"
+version: '3.7'
+
 services:
     mongo:
         image: mongo:3.6
         hostname: mongo
         container_name: mongo
-        ports:
-            - "27017:27017"
-        command: --bind_ip_all --smallfiles 
         networks:
             - cepware
+        ports:
+            - "27017:27017"
+        command: --bind_ip_all --smallfiles --port 27017
         volumes:
             - mongoVol:/data/configdb
             - mongoVol:/data/db
+            
     orion:
        image: fiware/orion
        hostname: orion
        container_name: orion
+       networks:
+            - cepware
        links:
             - mongo
        ports:
             - "1026:1026"
-       command: -dbhost mongo
-       networks:
-            - cepware
+       command: -dbhost mongo -logLevel INFO
+            
     cygnus:
         image: fiware/cygnus-ngsi:latest
         hostname: cygnus
         container_name: cygnus
+        networks:
+            - cepware
         links:
             - mongo
         expose:
@@ -39,12 +44,13 @@ services:
             - "CYGNUS_LOG_LEVEL=DEBUG"
             - "CYGNUS_SERVICE_PORT=5050"
             - "CYGNUS_API_PORT=5080"
-        networks:
-            - cepware
+
     idas:
        image: telefonicaiot/iotagent-ul
        hostname: idas
        container_name: idas
+       networks:
+            - cepware
        links:
          - orion
          - mongo
@@ -65,48 +71,49 @@ services:
         - "IOTA_MONGO_DB=idas"
         - "IOTA_PROVIDER_URL=http://idas:4041"
         - "CYGNUS_API_PORT=5080"
-       networks:
-            - cepware
+            
     jobmanager:
         image: flink:latest
         hostname: jobmanager
         container_name: jobmanager
+        networks:
+            - cepware
         expose:
           - "6123"
         ports:
           - "8081:8081"
         command: jobmanager
-        networks:
-            - cepware
         environment:
           - JOB_MANAGER_RPC_ADDRESS=jobmanager
+          
     taskmanager:
         image: flink:latest
         hostname: taskmanager
         container_name: taskmanager
+        networks:
+            - cepware
         expose:
           - "6121"
           - "6122"
         links:
           - jobmanager
         command: taskmanager
-        networks:
-            - cepware
         links:
           - "jobmanager:jobmanager"
         environment:
           - JOB_MANAGER_RPC_ADDRESS=jobmanager
+          
     nodered:
         image: nodered/node-red-docker
         hostname: nodered
         container_name: nodered
-        ports:
-            - "1880:1880"
         networks:
             - cepware
-          
+        ports:
+            - "1880:1880"
+
 networks:
     cepware:
-
+            
 volumes:
     mongoVol:

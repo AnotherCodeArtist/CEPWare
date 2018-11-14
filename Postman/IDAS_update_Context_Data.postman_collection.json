@@ -11,7 +11,7 @@
 				"method": "POST",
 				"header": [
 					{
-						"key": "Content-type",
+						"key": "Content-Type",
 						"value": "text/plain",
 						"type": "text"
 					},
@@ -21,17 +21,23 @@
 						"type": "text"
 					},
 					{
-						"key": "Fiware-Servicepath",
+						"key": "Fiware-servicepath",
 						"value": "/rooms",
 						"type": "text"
+					},
+					{
+						"key": "X-Auth-Token",
+						"value": "a-token",
+						"type": "text",
+						"disabled": true
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "t|13"
+					"raw": "t|16"
 				},
 				"url": {
-					"raw": "http://localhost:7896/iot/d?i=IoT-R1&k=4jggokgpepnvsb2uv4s40d59ov",
+					"raw": "http://localhost:7896/iot/d?k=test&i=IoT-R1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -43,12 +49,12 @@
 					],
 					"query": [
 						{
-							"key": "i",
-							"value": "IoT-R1"
+							"key": "k",
+							"value": "test"
 						},
 						{
-							"key": "k",
-							"value": "4jggokgpepnvsb2uv4s40d59ov"
+							"key": "i",
+							"value": "IoT-R1"
 						}
 					]
 				}
@@ -81,7 +87,7 @@
 					"raw": "t|13"
 				},
 				"url": {
-					"raw": "http://localhost:7896/iot/d?i=IoT-R2&k=4jggokgpepnvsb2uv4s40d59ov",
+					"raw": "http://localhost:7896/iot/d?i=IoT-R2&k=test",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -98,7 +104,7 @@
 						},
 						{
 							"key": "k",
-							"value": "4jggokgpepnvsb2uv4s40d59ov"
+							"value": "test"
 						}
 					]
 				}
@@ -131,7 +137,7 @@
 					"raw": "t|13"
 				},
 				"url": {
-					"raw": "http://localhost:7896/iot/d?i=IoT-R3&k=4jggokgpepnvsb2uv4s40d59ov",
+					"raw": "http://localhost:7896/iot/d?i=IoT-R3&k=test",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -148,7 +154,7 @@
 						},
 						{
 							"key": "k",
-							"value": "4jggokgpepnvsb2uv4s40d59ov"
+							"value": "test"
 						}
 					]
 				}
@@ -181,7 +187,7 @@
 					"raw": "t|13"
 				},
 				"url": {
-					"raw": "http://localhost:7896/iot/d?i=IoT-R4&k=4jggokgpepnvsb2uv4s40d59ov",
+					"raw": "http://localhost:7896/iot/d?i=IoT-R4&k=test",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -198,7 +204,7 @@
 						},
 						{
 							"key": "k",
-							"value": "4jggokgpepnvsb2uv4s40d59ov"
+							"value": "test"
 						}
 					]
 				}
@@ -231,7 +237,7 @@
 					"raw": "t|13"
 				},
 				"url": {
-					"raw": "http://localhost:7896/iot/d?i=IoT-R5&k=4jggokgpepnvsb2uv4s40d59ov",
+					"raw": "http://localhost:7896/iot/d?i=IoT-R5&k=test",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -248,7 +254,7 @@
 						},
 						{
 							"key": "k",
-							"value": "4jggokgpepnvsb2uv4s40d59ov"
+							"value": "test"
 						}
 					]
 				}

@@ -24,11 +24,16 @@
 						"key": "fiware-servicepath",
 						"value": "/rooms",
 						"type": "text"
+					},
+					{
+						"key": "X-Auth-Token",
+						"value": "a-token",
+						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"services\": [\r\n   {\r\n     \"apikey\":      \"4jggokgpepnvsb2uv4s40d59ov\",\r\n     \"cbroker\":     \"http://orion:1026\",\r\n     \"entity_type\": \"Room\",\r\n     \"resource\":    \"\"\r\n   } ]\r\n }\r\n "
+					"raw": "{\"services\": [\r\n   {\r\n     \"apikey\":      \"test\",\r\n     \"cbroker\":     \"http://orion:1026\",\r\n     \"entity_type\": \"Room\",\r\n     \"resource\":    \"/iot/d\"\r\n   } ]\r\n }\r\n "
 				},
 				"url": {
 					"raw": "http://localhost:4041/iot/services",
@@ -61,12 +66,12 @@
 						"type": "text"
 					},
 					{
-						"key": "Fiware-Service",
+						"key": "fiware-service",
 						"value": "cepware",
 						"type": "text"
 					},
 					{
-						"key": "Fiware-ServicePath",
+						"key": "fiware-servicepath",
 						"value": "/rooms",
 						"type": "text"
 					}
@@ -106,12 +111,12 @@
 						"value": "a-token"
 					},
 					{
-						"key": "Fiware-Service",
+						"key": "fiware-service",
 						"type": "text",
 						"value": "cepware"
 					},
 					{
-						"key": "Fiware-ServicePath",
+						"key": "fiware-servicepath",
 						"type": "text",
 						"value": "/rooms"
 					}
@@ -151,12 +156,12 @@
 						"type": "text"
 					},
 					{
-						"key": "Fiware-Service",
+						"key": "fiware-service",
 						"value": "cepware",
 						"type": "text"
 					},
 					{
-						"key": "Fiware-ServicePath",
+						"key": "fiware-servicepath",
 						"value": "/rooms",
 						"type": "text"
 					}
@@ -196,12 +201,12 @@
 						"type": "text"
 					},
 					{
-						"key": "Fiware-Service",
+						"key": "fiware-service",
 						"value": "cepware",
 						"type": "text"
 					},
 					{
-						"key": "Fiware-ServicePath",
+						"key": "fiware-servicepath",
 						"value": "/rooms",
 						"type": "text"
 					}
