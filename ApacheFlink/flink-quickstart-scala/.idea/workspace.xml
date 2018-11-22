@@ -2,51 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="59e575af-c118-4bc5-8749-0718acf34aa2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/org/apache/flink/StreamingJob.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/org/apache/flink/StreamingJob.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$11$$anon$12$$anon$13$$anon$14$$anon$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$11$$anon$12$$anon$13$$anon$14$$anon$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$11$$anon$12$$anon$13$$anon$14$$anonfun$createSerializer$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$11$$anon$12$$anon$13$$anon$14$$anonfun$createSerializer$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$11$$anon$12$$anon$13$$anon$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$11$$anon$12$$anon$13$$anon$14.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$11$$anon$12$$anon$13$$anon$15$$anon$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$11$$anon$12$$anon$13$$anon$15$$anon$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$11$$anon$12$$anon$13$$anon$15$$anonfun$createSerializer$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$11$$anon$12$$anon$13$$anon$15$$anonfun$createSerializer$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$11$$anon$12$$anon$13$$anon$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$11$$anon$12$$anon$13$$anon$15.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$11$$anon$12$$anon$13$$anon$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$11$$anon$12$$anon$13$$anon$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$11$$anon$12$$anon$13$$anonfun$createSerializer$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$11$$anon$12$$anon$13$$anonfun$createSerializer$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$11$$anon$12$$anon$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$11$$anon$12$$anon$13.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$11$$anon$12$$anon$24$$anon$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$11$$anon$12$$anon$24$$anon$16.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$11$$anon$12$$anon$24.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$11$$anon$12$$anon$24.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$11$$anon$12$$anon$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$11$$anon$12$$anon$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$11$$anon$12$$anonfun$createSerializer$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$11$$anon$12$$anonfun$createSerializer$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$11$$anon$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$11$$anon$12.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$11$$anon$25$$anon$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$11$$anon$25$$anon$17.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$11$$anon$25.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$11$$anon$25.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$11$$anon$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$11$$anon$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$11$$anonfun$createSerializer$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$11$$anonfun$createSerializer$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$18$$anon$19$$anon$20$$anon$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$18$$anon$19$$anon$20$$anon$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$18$$anon$19$$anon$20$$anonfun$createSerializer$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$18$$anon$19$$anon$20$$anonfun$createSerializer$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$18$$anon$19$$anon$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$18$$anon$19$$anon$20.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$18$$anon$19$$anon$21$$anon$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$18$$anon$19$$anon$21$$anon$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$18$$anon$19$$anon$21$$anonfun$createSerializer$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$18$$anon$19$$anon$21$$anonfun$createSerializer$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$18$$anon$19$$anon$21.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$18$$anon$19$$anon$21.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$18$$anon$19$$anon$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$18$$anon$19$$anon$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$18$$anon$19$$anonfun$createSerializer$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$18$$anon$19$$anonfun$createSerializer$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$18$$anon$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$18$$anon$19.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$18$$anon$26$$anon$22.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$18$$anon$26$$anon$22.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$18$$anon$26.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$18$$anon$26.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$18$$anon$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$18$$anon$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$18$$anonfun$createSerializer$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$18$$anonfun$createSerializer$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$18.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$23$$anon$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$23$$anon$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$23$$anonfun$createSerializer$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$23$$anonfun$createSerializer$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$23.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anon$23.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anonfun$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anonfun$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anonfun$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anonfun$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$Temp_Node$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$Temp_Node$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$Temp_Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$Temp_Node.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/flink-quickstart-scala-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/flink-quickstart-scala-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/original-flink-quickstart-scala-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/original-flink-quickstart-scala-1.0-SNAPSHOT.jar" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -153,13 +109,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="scala" value="2984" />
+          <entry key="scala" value="3972" />
           <entry key="xml" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Scala" value="2984" />
+          <entry key="Scala" value="3972" />
           <entry key="XML" value="4" />
         </counts>
       </usages-collector>
@@ -170,8 +126,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/org/apache/flink/StreamingJob.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="107">
-              <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
+            <state relative-caret-position="348">
+              <caret line="84" column="7" lean-forward="true" selection-start-line="84" selection-start-column="7" selection-end-line="84" selection-end-column="7" />
               <folding>
                 <element signature="e#833#878#0" expanded="true" />
               </folding>
@@ -302,12 +258,12 @@
       <workItem from="1542792534204" duration="603000" />
       <workItem from="1542793460970" duration="19242000" />
       <workItem from="1542825720955" duration="6366000" />
-      <workItem from="1542873462660" duration="8916000" />
+      <workItem from="1542873462660" duration="14762000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50614000" />
+    <option name="totallyTimeSpent" value="56460000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -388,8 +344,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/org/apache/flink/StreamingJob.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
+        <state relative-caret-position="348">
+          <caret line="84" column="7" lean-forward="true" selection-start-line="84" selection-start-column="7" selection-end-line="84" selection-end-column="7" />
           <folding>
             <element signature="e#833#878#0" expanded="true" />
           </folding>
