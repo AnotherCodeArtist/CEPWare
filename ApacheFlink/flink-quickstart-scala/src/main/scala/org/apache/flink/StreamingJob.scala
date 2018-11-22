@@ -21,22 +21,24 @@ package org.apache.flink
 import org.apache.flink.streaming.api.scala._
 import org.apache.flink.streaming.api.scala.{StreamExecutionEnvironment, _}
 import org.apache.flink.streaming.api.windowing.time.Time
-import org.fiware.cosmos.orion.flink.connector.{OrionSource}
+import org.fiware.cosmos.orion.flink.connector.{NgsiEvent, OrionSource}
 import java.io._
+import java.lang
+import java.util.stream.Collectors._
+import scala.io.Source
 
-/**
-  * Skeleton for a Flink Streaming Job.
-  *
-  * For a tutorial how to write a Flink streaming application, check the
-  * tutorials and examples on the <a href="http://flink.apache.org/docs/stable/">Flink Website</a>.
-  *
-  * To package your application into a JAR file for execution, run
-  * 'mvn clean package' on the command line.
-  *
-  * If you change the name of the main class (with the public static void main(String[] args))
-  * method, change the respective entry in the POM.xml file (simply search for 'mainClass').
-  */
+import org.apache.flink.api.common.functions.AggregateFunction
+import org.apache.flink.api.java.tuple.Tuple
+import org.apache.flink.streaming.api.functions.windowing.ProcessWindowFunction
+import org.apache.flink.streaming.api.windowing.windows.TimeWindow
+import org.apache.flink.util.Collector
+import org.apache.flink.api.common.state.ValueState
+import org.apache.flink.api.common.state.ValueStateDescriptor
+import org.apache.flink.streaming.api.datastream.DataStream
+import org.apache.flink.streaming.api.functions.ProcessFunction
+import org.apache.flink.util.Collector
 
+import scala.collection.TraversableOnce
 
 
 /**
@@ -46,39 +48,49 @@ import java.io._
   */
 
 object StreamingJob {
+
   def main(args: Array[String]) {
+
+    def checkTemp(tuple: roomTemp): String = {
+      var warning: String = tuple.id
+      val temperature: String = "temperature: " + tuple.temp
+
+      if (tuple.temp.toFloat > 60f) {
+        warning = warning + ": room on fire!"
+        warning + " " + temperature + "°C"
+      }
+      else if (tuple.temp.toFloat < 15f) {
+        warning = warning + ": do not forget to close the windows!"
+        warning + " " + temperature + "°C"
+      }
+      else {
+        ""
+      }
+    }
+
     // set up the streaming execution environment
     val env = StreamExecutionEnvironment.getExecutionEnvironment
     val eventStream = env.addSource(new OrionSource(9001))
 
-    val processedDataStream = eventStream
-      .flatMap(event => event.entities)
-      .map(entity => {
-        val temp = entity.attrs("temperature").value.asInstanceOf[Number].floatValue()
-        new Temp_Node(entity.id, temp)
-      })
-      .keyBy("id")
-      .timeWindow(Time.seconds(45), Time.seconds(30))
-      .max("temperature")
+    val processedDataStream = eventStream.flatMap(event => event.entities)
+      .map(entity => new roomTemp(entity.id, entity.attrs("temperature").value.asInstanceOf[String]))
 
-
-    /*
-    //Print the results with a single thread, rather than in parallel:
-    processedDataStream.print().setParallelism(1)
-    */
-
-
+    val warningStream = processedDataStream.map(checkTemp(_))
+    val filteredWarningStream = warningStream.filter(_ != "")
 
     /*
     Writing the Results in a log.txt File
     Attention: log.txt must not exist before the task is executed
     */
-    processedDataStream.writeAsText("/tmp/log.txt")
-
-
+    filteredWarningStream.writeAsText("/tmp/log.txt")
 
     // execute program
     env.execute("Socket Window NgsiEvent")
   }
-  case class Temp_Node(id: String, temperature: Float)
+
+  class roomTemp(var id: String, var temp: String) {
+  }
+
 }
+
+
