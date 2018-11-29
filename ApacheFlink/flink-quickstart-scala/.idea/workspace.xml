@@ -41,11 +41,15 @@
       <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anonfun$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anonfun$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anonfun$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anonfun$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anonfun$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anonfun$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anonfun$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anonfun$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anonfun$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anonfun$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anonfun$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$$anonfun$7.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$roomTemp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob$roomTemp.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/apache/flink/StreamingJob.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/flink-quickstart-scala-1.0-SNAPSHOT-shaded.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/flink-quickstart-scala-1.0-SNAPSHOT-shaded.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/flink-quickstart-scala-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/flink-quickstart-scala-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/original-flink-quickstart-scala-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/original-flink-quickstart-scala-1.0-SNAPSHOT.jar" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -130,11 +134,11 @@
     <session id="-526819840">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
+          <entry key="project.closed" value="8" />
           <entry key="project.open.time.0" value="4" />
-          <entry key="project.open.time.7" value="2" />
-          <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="8" />
+          <entry key="project.open.time.7" value="3" />
+          <entry key="project.open.time.9" value="3" />
+          <entry key="project.opened" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -153,13 +157,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="scala" value="5389" />
+          <entry key="scala" value="8484" />
           <entry key="xml" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Scala" value="5389" />
+          <entry key="Scala" value="8484" />
           <entry key="XML" value="4" />
         </counts>
       </usages-collector>
@@ -170,8 +174,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/org/apache/flink/StreamingJob.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="159" lean-forward="true" selection-start-line="159" selection-end-line="159" />
+            <state relative-caret-position="-842">
+              <caret line="48" column="4" lean-forward="true" selection-start-line="48" selection-start-column="4" selection-end-line="48" selection-end-column="4" />
               <folding>
                 <element signature="e#833#878#0" expanded="true" />
               </folding>
@@ -223,7 +227,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-15" />
     <option name="y" value="-15" />
     <option name="width" value="3235" />
@@ -237,6 +241,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -248,8 +254,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -303,22 +307,25 @@
       <workItem from="1542793460970" duration="19242000" />
       <workItem from="1542825720955" duration="6366000" />
       <workItem from="1542873462660" duration="20778000" />
+      <workItem from="1543429086647" duration="7354000" />
+      <workItem from="1543497671933" duration="7734000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62476000" />
+    <option name="totallyTimeSpent" value="77564000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15637584" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16040269" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.27053824" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.27053824" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -333,7 +340,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
-      <window_info anchor="right" id="Maven Projects" order="5" visible="true" weight="0.19261745" />
+      <window_info active="true" anchor="right" id="Maven Projects" order="5" visible="true" weight="0.19261745" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -387,8 +394,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/org/apache/flink/StreamingJob.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="159" lean-forward="true" selection-start-line="159" selection-end-line="159" />
+        <state relative-caret-position="-842">
+          <caret line="48" column="4" lean-forward="true" selection-start-line="48" selection-start-column="4" selection-end-line="48" selection-end-column="4" />
           <folding>
             <element signature="e#833#878#0" expanded="true" />
           </folding>
