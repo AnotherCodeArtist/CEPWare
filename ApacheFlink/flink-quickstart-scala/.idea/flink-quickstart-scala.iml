@@ -61,6 +61,6 @@
     <orderEntry type="library" name="Maven: org.scala-lang:scala-library:2.12.8" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.slf4j:slf4j-log4j12:1.7.7" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: log4j:log4j:1.2.17" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: org.fiware.cosmos:orion.flink.connector:1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.fiware.cosmos:orion.flink.connector:1.0" level="project" />
   </component>
 </module>
