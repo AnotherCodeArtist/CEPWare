@@ -19,27 +19,12 @@
 package org.apache.flink
 
 import org.apache.flink.streaming.api.scala._
-import org.apache.flink.streaming.api.scala.{StreamExecutionEnvironment, _}
+import org.apache.flink.streaming.api.scala.function.ProcessWindowFunction
 import org.apache.flink.streaming.api.windowing.time.Time
-import org.fiware.cosmos.orion.flink.connector.{NgsiEvent, OrionSource}
-import java.io._
-import java.lang
-import java.util.Calendar
-import java.util.stream.Collectors._
-
-import scala.io.Source
-import org.apache.flink.api.common.functions.AggregateFunction
-import org.apache.flink.api.java.tuple.Tuple
-import org.apache.flink.streaming.api.functions.windowing.ProcessWindowFunction
+import org.fiware.cosmos.orion.flink.connector.OrionSource
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow
+import org.apache.flink.streaming.api.windowing.assigners.TumblingProcessingTimeWindows
 import org.apache.flink.util.Collector
-import org.apache.flink.api.common.state.ValueState
-import org.apache.flink.api.common.state.ValueStateDescriptor
-import org.apache.flink.streaming.api.datastream.DataStream
-import org.apache.flink.streaming.api.functions.ProcessFunction
-import org.apache.flink.util.Collector
-
-import scala.collection.TraversableOnce
 
 
 /**
@@ -48,7 +33,7 @@ import scala.collection.TraversableOnce
   * org.apache.flink.StreamingJob
   */
 
-object StreamingJob {
+/*object StreamingJob {
 
   var timerList : List[(String,Long)] = List()
   var tempList1 : List[(String,Float)] = List()
@@ -150,6 +135,34 @@ object StreamingJob {
   }
 
   class roomTemp(var id: String, var temp: String) {
+  }
+
+}*/
+
+object StreamingJob {
+  def main(args: Array[String]) {
+
+    val env = StreamExecutionEnvironment.getExecutionEnvironment
+    val eventStream = env.addSource(new OrionSource(9001))
+
+    val processedDataStream = eventStream.flatMap(event => event.entities)
+      .map(entity => (entity.id, entity.attrs("temperature").value.asInstanceOf[String]))
+      .keyBy(_._1)
+      .window(TumblingProcessingTimeWindows.of(Time.seconds(1)))
+      .process(new MyProcessWindowFunction)
+
+    env.execute("Socket Window NgsiEvent")
+  }
+
+  class MyProcessWindowFunction extends ProcessWindowFunction[(String, String), String, String, TimeWindow] {
+
+    override def process(key: String, context: Context, elements: Iterable[(String, String)], out: Collector[String]): Unit = {
+      var count: Int = 0
+      for (in <- elements) {
+        count = count + 1
+      }
+      out.collect(s"Window ${context.window} count: $count")
+    }
   }
 
 }
