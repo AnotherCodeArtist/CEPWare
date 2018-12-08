@@ -17,19 +17,20 @@ func main() {
 	flag.Parse()
 
 	var url [5]string
-	if *location == "test" {
+	switch *location {
+	case "test":
 		url[0] = "https://httpbin.org/post"
 		url[1] = "https://httpbin.org/post"
 		url[2] = "https://httpbin.org/post"
 		url[3] = "https://httpbin.org/post"
 		url[4] = "https://httpbin.org/post"
-	} else if *location == "local" {
+	case "local":
 		url[0] = "http://localhost:7896/iot/d?k=test&i=IoT-R1"
 		url[1] = "http://localhost:7896/iot/d?k=test&i=IoT-R2"
 		url[2] = "http://localhost:7896/iot/d?k=test&i=IoT-R3"
 		url[3] = "http://localhost:7896/iot/d?k=test&i=IoT-R4"
 		url[4] = "http://localhost:7896/iot/d?k=test&i=IoT-R5"
-	} else if *location == "fh" {
+	case "fh":
 		url[0] = "http://10.25.2.147:7896/iot/d?k=test&i=IoT-R1"
 		url[1] = "http://10.25.2.147:7896/iot/d?k=test&i=IoT-R2"
 		url[2] = "http://10.25.2.147:7896/iot/d?k=test&i=IoT-R3"
@@ -76,6 +77,6 @@ func MakeRequest(url string, payload string) {
 	if err != nil {
 		log.Fatalln(err)
 	}
-	
+
 	fmt.Println("Sent '" + payload + "' to " + url)
 }
