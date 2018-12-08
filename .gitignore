@@ -95,7 +95,6 @@ ApacheFlink/flink-quickstart-scala/*.lnk
 
 ### Go ###
 # Binaries for programs and plugins
-Scripts/cepware-datagenerator-go/*.exe
 Scripts/cepware-datagenerator-go/*.exe~
 Scripts/cepware-datagenerator-go/*.dll
 Scripts/cepware-datagenerator-go/*.so
