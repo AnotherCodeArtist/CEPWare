@@ -102,15 +102,6 @@ services:
           - "jobmanager:jobmanager"
         environment:
           - JOB_MANAGER_RPC_ADDRESS=jobmanager
-          
-    nodered:
-        image: nodered/node-red-docker
-        hostname: nodered
-        container_name: nodered
-        networks:
-            - cepware
-        ports:
-            - "1880:1880"
 
 networks:
     cepware:
