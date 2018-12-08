@@ -11,23 +11,31 @@ import (
 )
 
 func main() {
-
 	strategy := flag.String("strategy", "normal", "generation strategy for data: normal, fire, failure")
-	room := flag.Int("room", 1, "the room to which the data should be sent")
-
+	room := flag.Int("room", 1, "the room to which the data should be sent: 1 - 5")
+	location := flag.String("location", "test", "where the data should be sent to: test, local, fh")
 	flag.Parse()
 
 	var url [5]string
-	/*url[0] = "http://localhost:7896/iot/d?k=test&i=IoT-R1"
-	url[1] = "http://localhost:7896/iot/d?k=test&i=IoT-R2"
-	url[2] = "http://localhost:7896/iot/d?k=test&i=IoT-R3"
-	url[3] = "http://localhost:7896/iot/d?k=test&i=IoT-R4"
-	url[4] = "http://localhost:7896/iot/d?k=test&i=IoT-R5"*/
-	url[0] = "https://httpbin.org/post"
-	url[1] = "https://httpbin.org/post"
-	url[2] = "https://httpbin.org/post"
-	url[3] = "https://httpbin.org/post"
-	url[4] = "https://httpbin.org/post"
+	if *location == "test" {
+		url[0] = "https://httpbin.org/post"
+		url[1] = "https://httpbin.org/post"
+		url[2] = "https://httpbin.org/post"
+		url[3] = "https://httpbin.org/post"
+		url[4] = "https://httpbin.org/post"
+	} else if *location == "local" {
+		url[0] = "http://localhost:7896/iot/d?k=test&i=IoT-R1"
+		url[1] = "http://localhost:7896/iot/d?k=test&i=IoT-R2"
+		url[2] = "http://localhost:7896/iot/d?k=test&i=IoT-R3"
+		url[3] = "http://localhost:7896/iot/d?k=test&i=IoT-R4"
+		url[4] = "http://localhost:7896/iot/d?k=test&i=IoT-R5"
+	} else if *location == "fh" {
+		url[0] = "http://10.25.2.147:7896/iot/d?k=test&i=IoT-R1"
+		url[1] = "http://10.25.2.147:7896/iot/d?k=test&i=IoT-R2"
+		url[2] = "http://10.25.2.147:7896/iot/d?k=test&i=IoT-R3"
+		url[3] = "http://10.25.2.147:7896/iot/d?k=test&i=IoT-R4"
+		url[4] = "http://10.25.2.147:7896/iot/d?k=test&i=IoT-R5"
+	}
 
 	GenerateData(url[*room], *strategy)
 }
@@ -54,6 +62,7 @@ func GenerateData(url string, strategy string) {
 
 func MakeRequest(url string, payload string) {
 	reader := strings.NewReader(payload)
+
 	req, err := http.NewRequest("POST", url, reader)
 	if err != nil {
 		log.Fatalln(err)
@@ -67,5 +76,6 @@ func MakeRequest(url string, payload string) {
 	if err != nil {
 		log.Fatalln(err)
 	}
-	fmt.Println(payload)
+	
+	fmt.Println("Sent '" + payload + "' to " + url)
 }
