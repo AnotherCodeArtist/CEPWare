@@ -1,3 +1,4 @@
+// main package for data-generator 
 package main
 
 import (
