@@ -56,11 +56,6 @@ ApacheFlink/flink-quickstart-scala/.idea/httpRequests
 ApacheFlink/flink-quickstart-scala/*.class
 ApacheFlink/flink-quickstart-scala/*.log
 ### Maven template
-ApacheFlink/flink-quickstart-scala/target/*.timestamp
-ApacheFlink/flink-quickstart-scala/target/maven-archiver
-ApacheFlink/flink-quickstart-scala/target/maven-status
-ApacheFlink/flink-quickstart-scala/target/*-shaded.jar
-ApacheFlink/flink-quickstart-scala/target/original-*.jar
 ApacheFlink/flink-quickstart-scala/pom.xml.tag
 ApacheFlink/flink-quickstart-scala/pom.xml.releaseBackup
 ApacheFlink/flink-quickstart-scala/pom.xml.versionsBackup
