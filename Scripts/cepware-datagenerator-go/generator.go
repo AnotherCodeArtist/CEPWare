@@ -38,7 +38,7 @@ func main() {
 		url[4] = "http://10.25.2.147:7896/iot/d?k=test&i=IoT-R5"
 	}
 
-	GenerateData(url[*room], *strategy)
+	GenerateData(url[*room-1], *strategy)
 }
 
 func GenerateData(url string, strategy string) {
