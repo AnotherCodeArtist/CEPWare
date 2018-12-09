@@ -73,13 +73,15 @@ object StreamingJob {
       .keyBy(_._1)
       .window(TumblingProcessingTimeWindows.of(Time.seconds(1)))
       .process(new MyProcessWindowFunction)
+      .writeAsText("/tmp/log.txt")
 
 
-
-    processedDataStream.writeAsText("/tmp/log.txt")
+    //processedDataStream.writeAsText("/tmp/log.txt")
 
     env.execute("Socket Window NgsiEvent")
   }
+
+
 
   class MyProcessWindowFunction extends ProcessWindowFunction[(String, String), String, String, TimeWindow] {
 
@@ -108,5 +110,5 @@ object StreamingJob {
       out.collect(message)
     }
   }
-
 }
+
