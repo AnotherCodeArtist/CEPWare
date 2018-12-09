@@ -6,8 +6,8 @@ with "docker-compose up" in the directory where this file is stored. The first t
 take up to 15 Minutes.
 So, cd into the CEPWARE folder and run "docker-compose up".
 
-Secondly, you have to run the Powershell script Setup.ps1 after the docker-compose is finished. This script ask you to
-provide the path to your CEPWARE folder. Afterwards it sets up Apache Flink.
+Secondly, you have to run the Python script Setup.py after the docker-compose is finished. This script ask you to
+provide the path to your CEPWARE folder (So far only tested under windows). Afterwards it sets up Apache Flink.
 
 Thirdly, when the environment is up and running you have to open Postman and import the all collections.
 Afterwards you have to send the requests in the order listed below.
