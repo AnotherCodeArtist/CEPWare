@@ -53,9 +53,17 @@ func GenerateData(url string, strategy string) {
 			payload := "t|" + strconv.Itoa(i)
 			MakeRequest(url, payload)
 		}
+		for {
+			payload := "t|50"
+			MakeRequest(url, payload)
+		}
 	case "failure":
 		for i := 20; i < 100; i++ {
 			payload := "t|" + strconv.Itoa(rand.Intn(i))
+			MakeRequest(url, payload)
+		}
+		for {
+			payload := "t|" + strconv.Itoa(rand.Intn(100))
 			MakeRequest(url, payload)
 		}
 	}
