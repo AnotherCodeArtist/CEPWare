@@ -1,4 +1,9 @@
-// main package for data-generator 
+/*
+ * Copyright (c) 2018 CEPWare-Team (GregorFernbach, heiderst16, sweiland)
+ * For licensing information see LICENSE
+ */
+
+// package for data-generator for CEPWare
 package main
 
 import (
@@ -12,11 +17,13 @@ import (
 )
 
 func main() {
+	// define command line flags and add default values
 	strategy := flag.String("strategy", "normal", "generation strategy for data: normal, fire, failure")
 	room := flag.Int("room", 1, "the room to which the data should be sent: 1 - 5")
 	location := flag.String("location", "test", "where the data should be sent to: test, local, fh")
 	flag.Parse()
 
+	// react to "location" flag
 	var url [5]string
 	switch *location {
 	case "test":
@@ -39,9 +46,11 @@ func main() {
 		url[4] = "http://10.25.2.147:7896/iot/d?k=test&i=IoT-R5"
 	}
 
+	// react to "room" and "strategy" flags
 	GenerateData(url[*room-1], *strategy)
 }
 
+// function that generates data in UL2.0 format based on a strategy
 func GenerateData(url string, strategy string) {
 	switch strategy {
 	case "normal":
@@ -70,6 +79,7 @@ func GenerateData(url string, strategy string) {
 	}
 }
 
+// function that sends out data to an URL
 func MakeRequest(url string, payload string) {
 	reader := strings.NewReader(payload)
 
