@@ -21,13 +21,13 @@ if pltfrm == "Windows":
 else:
     # input_var = input_var.split(os.altsep)
     slash = os.altsep
-source = os.path.join(input_var, "CEPWare", "ApacheFlink", "flink-quickstart-scala", "target",
-                      "flink-quickstart-scala-1.0-SNAPSHOT.jar")
+source = os.path.join(input_var, "CEPWare", "cepware", "target",
+                      "cepware-1.5.jar")
 client = docker.from_env()
 
 container = client.containers.get("jobmanager")
 containerId = container.id
-destination = (containerId + ":" + "/opt/flink/flink-quickstart-scala-1.0-SNAPSHOT.jar")
+destination = (containerId + ":" + "/opt/flink/cepware-1.5.jar")
 
 
 def copy_to(src, dst):
@@ -47,7 +47,7 @@ def copy_to(src, dst):
 
 
 copy_to(source, destination)
-container.exec_run(cmd="flink run ./flink-quickstart-scala-1.0-SNAPSHOT.jar", workdir="/opt/flink/")
+container.exec_run(cmd="flink run ./cepware-1.5.jar", workdir="/opt/flink/")
 
 print("Starting Datageneration now! Exit with ctrl-c!")
 generator_path = os.path.join(input_var, "CEPWare", "Scripts", "cepware-datagenerator-go", "")

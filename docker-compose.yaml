@@ -15,7 +15,7 @@ services:
             - mongoVol:/data/db
             
     orion:
-       image: fiware/orion
+       image: fiware/orion:2.0.0
        hostname: orion
        container_name: orion
        networks:
@@ -27,7 +27,7 @@ services:
        command: -dbhost mongo -logLevel INFO
             
     cygnus:
-        image: fiware/cygnus-ngsi:latest
+        image: fiware/cygnus-ngsi:1.9.0
         hostname: cygnus
         container_name: cygnus
         networks:
@@ -46,7 +46,7 @@ services:
             - "CYGNUS_API_PORT=5080"
 
     idas:
-       image: telefonicaiot/iotagent-ul
+       image: telefonicaiot/iotagent-ul:1.7.0
        hostname: idas
        container_name: idas
        networks:
@@ -73,7 +73,7 @@ services:
         - "CYGNUS_API_PORT=5080"
             
     jobmanager:
-        image: flink:latest
+        image: flink:1.6.1
         hostname: jobmanager
         container_name: jobmanager
         networks:
@@ -87,7 +87,7 @@ services:
           - JOB_MANAGER_RPC_ADDRESS=jobmanager
           
     taskmanager:
-        image: flink:latest
+        image: flink:1.6.1
         hostname: taskmanager
         container_name: taskmanager
         networks:
