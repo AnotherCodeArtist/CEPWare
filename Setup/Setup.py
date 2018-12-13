@@ -50,7 +50,7 @@ def copy_to(src, dst):
 print("Starting Apache Flink. Please be patient...")
 copy_to(source, destination)
 # Execute the apache flink jar on the taskmanager
-container.exec_run(cmd="flink run ./cepware-1.5.jar", workdir="/opt/flink/")
+container.exec_run(cmd="flink run -d ./cepware-1.5.jar", workdir="/opt/flink/")
 print("Apache Flink is up and running.")
 
 print("Setting up the infrastructure and sending requests. Please be patient...")
