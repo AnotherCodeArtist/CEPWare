@@ -19,12 +19,11 @@
 package cep
 
 import org.apache.flink.streaming.api.scala._
-
 import org.apache.flink.streaming.api.scala.function.ProcessWindowFunction
 import org.apache.flink.streaming.api.windowing.time.Time
 import org.fiware.cosmos.orion.flink.connector.OrionSource
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow
-import org.apache.flink.streaming.api.windowing.assigners.TumblingProcessingTimeWindows
+import org.apache.flink.streaming.api.windowing.assigners.{SlidingProcessingTimeWindows}
 import org.apache.flink.util.Collector
 
 
@@ -40,7 +39,6 @@ object StreamingJob {
   var timerList: List[(String, Long)] = List()
   var currentTime: Long = 0
   var timeChecker: Long = 0
-  var timeOuts: String = ""
 
   def timeoutWriter(sensor: String, sensorTimer: Long, currentTime: Long): String = {
     if (currentTime - sensorTimer > 5){
@@ -58,26 +56,15 @@ object StreamingJob {
 
   def main(args: Array[String]) {
 
-    currentTime = System.currentTimeMillis() / 1000
     val env = StreamExecutionEnvironment.getExecutionEnvironment
     val eventStream = env.addSource(new OrionSource(9001))
-
-    if (currentTime - timeChecker > 5) {
-      timeOuts = getTimeouts(timerList, "")
-      timeChecker = System.currentTimeMillis() / 1000
-    } else {
-      timeOuts = ""
-    }
 
     val processedDataStream = eventStream.flatMap(event => event.entities)
       .map(entity => (entity.id, entity.attrs("temperature").value.asInstanceOf[String]))
       .keyBy(_._1)
-      .window(TumblingProcessingTimeWindows.of(Time.seconds(1)))
+      .window(SlidingProcessingTimeWindows.of(Time.seconds(20), Time.seconds(5)))
       .process(new MyProcessWindowFunction)
       .writeAsText("/tmp/log.txt")
-
-
-    //processedDataStream.writeAsText("/tmp/log.txt")
 
     env.execute("Socket Window NgsiEvent")
   }
@@ -87,13 +74,15 @@ object StreamingJob {
   class MyProcessWindowFunction extends ProcessWindowFunction[(String, String), String, String, TimeWindow] {
 
     override def process(key: String, context: Context, elements: Iterable[(String, String)], out: Collector[String]): Unit = {
+
+      currentTime = System.currentTimeMillis() / 1000
       var message: String = ""
       val values: Iterable[Float] = elements.map(_._2.toFloat)
       val max: Float = values.max
       val min: Float = values.min
 
       timerList = timerList.filterNot(_._1 == key)
-      timerList = (key, System.currentTimeMillis() / 1000) :: timerList
+      timerList = (key, currentTime) :: timerList
 
       if (max >= 60){
         message = message + message + key + ": room on fire!" + " temperature: " + max.toString + "°C" + "\n"
@@ -104,10 +93,8 @@ object StreamingJob {
       if (max - min >= 3) {
         message = message + key + ": room on fire!" + " temperature is rising too fast" + "\n"
       }
-      timerList = timerList
 
-      message = message + timeOuts
-
+      message = getTimeouts(timerList, message)
       out.collect(message)
     }
   }
