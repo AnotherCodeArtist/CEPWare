@@ -51,9 +51,9 @@ object StreamingJob {
 
   // function to iterate over the map timerMap in order to find sensors that aren't working anymore by applying the
   // timeoutWriter function
-  def getTimeouts(map: Map[String, Long], message: String): String = {
+  def getTimeouts(map: Map[String, Long], message: String, time: Long): String = {
     var text: String = message
-    map foreach (x => text += timeoutWriter(x._1, x._2, currentTime))
+    map foreach (x => text += timeoutWriter(x._1, x._2, time))
     text
   }
 
@@ -104,7 +104,7 @@ object StreamingJob {
       }
 
       // searching for timeouts and deleting the last carriage return
-      messages = getTimeouts(timerMap, messages).stripLineEnd
+      messages = getTimeouts(timerMap, messages, currentTime).stripLineEnd
       out.collect(messages)
     }
   }
