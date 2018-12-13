@@ -4,12 +4,50 @@
     <list default="true" id="0f15b707-bf58-489b-af84-66667ea76041" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/cep/StreamingJob.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/cep/StreamingJob.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/cepware-1.5-shaded.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/cepware-1.5-shaded.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/cepware-1.5.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/cepware-1.5.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cep/StreamingJob$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$MyProcessWindowFunction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cep/StreamingJob$MyProcessWindowFunction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cep/StreamingJob.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/original-cepware-1.5.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/original-cepware-1.5.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$$anon$11$$anon$12$$anon$13$$anon$14$$anon$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$$anon$11$$anon$12$$anon$13$$anon$14$$anonfun$createSerializer$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$$anon$11$$anon$12$$anon$13$$anon$14.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$$anon$11$$anon$12$$anon$13$$anon$15$$anon$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$$anon$11$$anon$12$$anon$13$$anon$15$$anonfun$createSerializer$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$$anon$11$$anon$12$$anon$13$$anon$15.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$$anon$11$$anon$12$$anon$13$$anon$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$$anon$11$$anon$12$$anon$13$$anonfun$createSerializer$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$$anon$11$$anon$12$$anon$13.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$$anon$11$$anon$12$$anon$24$$anon$16.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$$anon$11$$anon$12$$anon$24.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$$anon$11$$anon$12$$anon$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$$anon$11$$anon$12$$anonfun$createSerializer$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$$anon$11$$anon$12.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$$anon$11$$anon$25$$anon$17.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$$anon$11$$anon$25.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$$anon$11$$anon$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$$anon$11$$anonfun$createSerializer$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$$anon$11.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$$anon$18$$anon$19$$anon$20$$anon$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$$anon$18$$anon$19$$anon$20$$anonfun$createSerializer$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$$anon$18$$anon$19$$anon$20.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$$anon$18$$anon$19$$anon$21$$anon$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$$anon$18$$anon$19$$anon$21$$anonfun$createSerializer$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$$anon$18$$anon$19$$anon$21.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$$anon$18$$anon$19$$anon$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$$anon$18$$anon$19$$anonfun$createSerializer$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$$anon$18$$anon$19.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$$anon$18$$anon$26$$anon$22.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$$anon$18$$anon$26.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$$anon$18$$anon$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$$anon$18$$anonfun$createSerializer$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$$anon$18.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$$anon$23$$anon$10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$$anon$23$$anonfun$createSerializer$10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$$anon$23.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$$anonfun$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$$anonfun$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$$anonfun$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$MyProcessWindowFunction$$anonfun$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$MyProcessWindowFunction$$anonfun$process$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob$MyProcessWindowFunction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cep/StreamingJob.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,11 +60,11 @@
     <session id="763362454">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.7" value="2" />
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.open.time.8" value="2" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -48,11 +86,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/cep/StreamingJob.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="1870">
+              <caret line="110" column="1" selection-start-line="110" selection-start-column="1" selection-end-line="110" selection-end-column="1" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
-                <element signature="e#820#865#0" expanded="true" />
+                <element signature="e#820#862#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -578,6 +616,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -615,7 +654,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -650,16 +688,17 @@
       <workItem from="1544707692420" duration="114000" />
       <workItem from="1544707852962" duration="8204000" />
       <workItem from="1544717329287" duration="3168000" />
+      <workItem from="1544724232319" duration="38000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14633000" />
+    <option name="totallyTimeSpent" value="14671000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26912752" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27315435" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -695,11 +734,11 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/scala/cep/StreamingJob.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="1870">
+          <caret line="110" column="1" selection-start-line="110" selection-start-column="1" selection-end-line="110" selection-end-column="1" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#820#865#0" expanded="true" />
+            <element signature="e#820#862#0" expanded="true" />
           </folding>
         </state>
       </provider>
