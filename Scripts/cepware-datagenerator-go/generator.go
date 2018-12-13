@@ -108,5 +108,5 @@ func MakeRequest(url string, payload string) {
 	}
 
 	fmt.Println("Sent '" + payload + "' to " + url)
-	time.Sleep(1 * time.Second)
+	time.Sleep(200 * time.Millisecond)
 }
