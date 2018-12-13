@@ -5,6 +5,8 @@
 
 
 **/.idea/*
+cepware/target/cepware-1.5.jar.tar
+cepware/target/cepware-1.5-shaded.jar
 
 ### Go ###
 # Binaries for programs and plugins
