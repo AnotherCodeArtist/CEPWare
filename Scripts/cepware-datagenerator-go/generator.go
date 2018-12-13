@@ -14,12 +14,12 @@ import (
 	"net/http"
 	"strconv"
 	"strings"
+	"time"
 )
 
 func main() {
 	// define command line flags and add default values
 	strategy := flag.String("strategy", "normal", "generation strategy for data: normal, fire, failure")
-	room := flag.Int("room", 1, "the room to which the data should be sent: 1 - 5")
 	location := flag.String("location", "test", "where the data should be sent to: test, local, fh")
 	flag.Parse()
 
@@ -39,42 +39,52 @@ func main() {
 		url[3] = "http://localhost:7896/iot/d?k=test&i=IoT-R4"
 		url[4] = "http://localhost:7896/iot/d?k=test&i=IoT-R5"
 	case "fh":
-		url[0] = "http://10.25.2.147:7896/iot/d?k=test&i=IoT-R1"
-		url[1] = "http://10.25.2.147:7896/iot/d?k=test&i=IoT-R2"
-		url[2] = "http://10.25.2.147:7896/iot/d?k=test&i=IoT-R3"
-		url[3] = "http://10.25.2.147:7896/iot/d?k=test&i=IoT-R4"
-		url[4] = "http://10.25.2.147:7896/iot/d?k=test&i=IoT-R5"
+		url[0] = "http://10.25.2.146:7896/iot/d?k=test&i=IoT-R1"
+		url[1] = "http://10.25.2.146:7896/iot/d?k=test&i=IoT-R2"
+		url[2] = "http://10.25.2.146:7896/iot/d?k=test&i=IoT-R3"
+		url[3] = "http://10.25.2.146:7896/iot/d?k=test&i=IoT-R4"
+		url[4] = "http://10.25.2.146:7896/iot/d?k=test&i=IoT-R5"
 	}
 
 	// react to "room" and "strategy" flags
-	GenerateData(url[*room-1], *strategy)
+	GenerateData(url, *strategy)
 }
 
 // function that generates data in UL2.0 format based on a strategy
-func GenerateData(url string, strategy string) {
+func GenerateData(url [5]string, strategy string) {
 	switch strategy {
 	case "normal":
 		payload := "t|20"
 		for {
-			MakeRequest(url, payload)
+			for r := 0; r < 5; r++ {
+				MakeRequest(url[r], payload)
+			}
 		}
 	case "fire":
 		for i := 20; i < 50; i++ {
 			payload := "t|" + strconv.Itoa(i)
-			MakeRequest(url, payload)
+			for r := 0; r < 5; r++ {
+				MakeRequest(url[r], payload)
+			}
 		}
 		for {
 			payload := "t|50"
-			MakeRequest(url, payload)
+			for r := 0; r < 5; r++ {
+				MakeRequest(url[r], payload)
+			}
 		}
 	case "failure":
 		for i := 20; i < 100; i++ {
 			payload := "t|" + strconv.Itoa(rand.Intn(i))
-			MakeRequest(url, payload)
+			for r := 0; r < 5; r++ {
+				MakeRequest(url[r], payload)
+			}
 		}
 		for {
 			payload := "t|" + strconv.Itoa(rand.Intn(100))
-			MakeRequest(url, payload)
+			for r := 0; r < 5; r++ {
+				MakeRequest(url[r], payload)
+			}
 		}
 	}
 }
@@ -98,4 +108,5 @@ func MakeRequest(url string, payload string) {
 	}
 
 	fmt.Println("Sent '" + payload + "' to " + url)
+	time.Sleep(1 * time.Second)
 }

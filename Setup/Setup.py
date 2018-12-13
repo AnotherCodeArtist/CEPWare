@@ -53,11 +53,11 @@ print("Starting Datageneration now! Exit with ctrl-c!")
 generator_path = os.path.join(input_var, "CEPWare", "Scripts", "cepware-datagenerator-go", "")
 
 if pltfrm == "Windows":
-    subprocess.run([generator_path + "cepware-datagenerator-go-windows.exe", "-strategy=" + strategy, "-room=1",
+    subprocess.run([generator_path + "cepware-datagenerator-go-windows.exe", "-strategy=" + strategy,
                     "-location=" + location])
 elif pltfrm == "Darwin":
-    subprocess.run([generator_path + "cepware-datagenerator-go-darwin", "-strategy=" + strategy, "-room=2",
+    subprocess.run([generator_path + "cepware-datagenerator-go-darwin", "-strategy=" + strategy,
                     "-location=" + location])
 else:
-    subprocess.run([generator_path + "cepware-datagenerator-go-linux", "-strategy=" + strategy, "-room=3",
+    subprocess.run([generator_path + "cepware-datagenerator-go-linux", "-strategy=" + strategy,
                     "-location=" + location])
