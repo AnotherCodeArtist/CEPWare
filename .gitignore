@@ -5,6 +5,7 @@
 
 # User-specific stuff
 ApacheFlink/flink-quickstart-scala/.idea/**/workspace.xml
+cepware/.idea/workspace.xml
 ApacheFlink/flink-quickstart-scala/.idea/**/tasks.xml
 ApacheFlink/flink-quickstart-scala/.idea/**/dictionaries
 ApacheFlink/flink-quickstart-scala/.idea/**/shelf
