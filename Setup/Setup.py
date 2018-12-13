@@ -56,27 +56,27 @@ print("Apache Flink is up and running.")
 print("Setting up the infrastructure and sending requests. Please be patient...")
 #Call the requests
 # Setup the Subscription from ORION to Cygnus
-subprocess.call(["python", (os.path.join(input_var, "CEPWare", "Scripts", "Subscriptions", "post_subscription_cygnus.py"))])
+subprocess.call(["python", (os.path.join(input_var, "CEPware", "Scripts", "Subscriptions", "post_subscription_cygnus.py"))])
 # Setup the Subscription from ORION to Apache Flink
-subprocess.call(["python", (os.path.join(input_var, "CEPWare", "Scripts", "Subscriptions", "post_subscription_flink.py"))])
+subprocess.call(["python", (os.path.join(input_var, "CEPware", "Scripts", "Subscriptions", "post_subscription_flink.py"))])
 # Create the ORION entities for Room 1 - 5
-subprocess.call(["python", (os.path.join(input_var, "CEPWare", "Scripts", "ORION", "post_create_R1.py"))])
-subprocess.call(["python", (os.path.join(input_var, "CEPWare", "Scripts", "ORION", "post_create_R2.py"))])
-subprocess.call(["python", (os.path.join(input_var, "CEPWare", "Scripts", "ORION", "post_create_R3.py"))])
-subprocess.call(["python", (os.path.join(input_var, "CEPWare", "Scripts", "ORION", "post_create_R4.py"))])
-subprocess.call(["python", (os.path.join(input_var, "CEPWare", "Scripts", "ORION", "post_create_R5.py"))])
+subprocess.call(["python", (os.path.join(input_var, "CEPware", "Scripts", "ORION", "post_create_R1.py"))])
+subprocess.call(["python", (os.path.join(input_var, "CEPware", "Scripts", "ORION", "post_create_R2.py"))])
+subprocess.call(["python", (os.path.join(input_var, "CEPware", "Scripts", "ORION", "post_create_R3.py"))])
+subprocess.call(["python", (os.path.join(input_var, "CEPware", "Scripts", "ORION", "post_create_R4.py"))])
+subprocess.call(["python", (os.path.join(input_var, "CEPware", "Scripts", "ORION", "post_create_R5.py"))])
 # Register IDAS service group
-subprocess.call(["python", (os.path.join(input_var, "CEPWare", "Scripts", "IDAS", "post_provision_service_group.py"))])
+subprocess.call(["python", (os.path.join(input_var, "CEPware", "Scripts", "IDAS", "post_provision_service_group.py"))])
 # Register IDAS entities for Room 1 -5
-subprocess.call(["python", (os.path.join(input_var, "CEPWare", "Scripts", "IDAS", "post_register_IoT-R1.py"))])
-subprocess.call(["python", (os.path.join(input_var, "CEPWare", "Scripts", "IDAS", "post_register_IoT-R2.py"))])
-subprocess.call(["python", (os.path.join(input_var, "CEPWare", "Scripts", "IDAS", "post_register_IoT-R3.py"))])
-subprocess.call(["python", (os.path.join(input_var, "CEPWare", "Scripts", "IDAS", "post_register_IoT-R4.py"))])
-subprocess.call(["python", (os.path.join(input_var, "CEPWare", "Scripts", "IDAS", "post_register_IoT-R5.py"))])
+subprocess.call(["python", (os.path.join(input_var, "CEPware", "Scripts", "IDAS", "post_register_IoT-R1.py"))])
+subprocess.call(["python", (os.path.join(input_var, "CEPware", "Scripts", "IDAS", "post_register_IoT-R2.py"))])
+subprocess.call(["python", (os.path.join(input_var, "CEPware", "Scripts", "IDAS", "post_register_IoT-R3.py"))])
+subprocess.call(["python", (os.path.join(input_var, "CEPware", "Scripts", "IDAS", "post_register_IoT-R4.py"))])
+subprocess.call(["python", (os.path.join(input_var, "CEPware", "Scripts", "IDAS", "post_register_IoT-R5.py"))])
 print("The infrastructure is up and running.")
 
 print("Starting Datageneration now! Exit with ctrl-c!")
-generator_path = os.path.join(input_var, "CEPWare", "Scripts", "cepware-datagenerator-go", "")
+generator_path = os.path.join(input_var, "CEPware", "Scripts", "cepware-datagenerator-go", "")
 
 if pltfrm == "Windows":
     subprocess.run([generator_path + "cepware-datagenerator-go-windows.exe", "-strategy=" + strategy,
