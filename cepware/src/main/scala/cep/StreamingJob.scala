@@ -36,9 +36,9 @@ import org.apache.flink.util.Collector
 
 object StreamingJob {
 
-  var timerList: List[(String, Long)] = List()
   var currentTime: Long = 0
   var timeChecker: Long = 0
+  var timerMap: Map[String,Long] = Map()
 
   def timeoutWriter(sensor: String, sensorTimer: Long, currentTime: Long): String = {
     if (currentTime - sensorTimer > 5){
@@ -47,11 +47,10 @@ object StreamingJob {
       ""
     }
   }
-  def getTimeouts(list: List[(String, Long)], messages: String) : String = {
-    list match {
-      case Nil => messages
-      case x :: xs => getTimeouts(xs, messages + timeoutWriter(x._1, x._2, currentTime))
-    }
+  def getTimeouts(map: Map[String, Long], message: String): String = {
+    var text: String = message
+    map foreach (x => text += timeoutWriter(x._1, x._2, currentTime))
+    text
   }
 
   def main(args: Array[String]) {
@@ -76,26 +75,25 @@ object StreamingJob {
     override def process(key: String, context: Context, elements: Iterable[(String, String)], out: Collector[String]): Unit = {
 
       currentTime = System.currentTimeMillis() / 1000
-      var message: String = ""
+      var messages: String = ""
       val values: Iterable[Float] = elements.map(_._2.toFloat)
       val max: Float = values.max
       val min: Float = values.min
 
-      timerList = timerList.filterNot(_._1 == key)
-      timerList = (key, currentTime) :: timerList
+      timerMap += (key -> currentTime)
 
       if (max >= 60){
-        message = message + message + key + ": room on fire!" + " temperature: " + max.toString + "°C" + "\n"
+        messages += key + ": room on fire!" + " temperature: " + max.toString + "°C" + "\n"
       }
       if (min <= 15) {
-        message = message + key + ": do not forget to close the windows!" + " temperature: " + min.toString + "°C" + "\n"
+        messages += key + ": do not forget to close the windows!" + " temperature: " + min.toString + "°C" + "\n"
       }
       if (max - min >= 3) {
-        message = message + key + ": room on fire!" + " temperature is rising too fast" + "\n"
+        messages += key + ": room on fire!" + " temperature is rising too fast" + "\n"
       }
 
-      message = getTimeouts(timerList, message)
-      out.collect(message)
+      messages = getTimeouts(timerMap, messages).stripLineEnd
+      out.collect(messages)
     }
   }
 }
