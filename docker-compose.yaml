@@ -79,7 +79,7 @@ services:
         networks:
             - cepware
         expose:
-          - "6123"
+          - "6124"
         ports:
           - "8081:8081"
         command: jobmanager
@@ -95,6 +95,7 @@ services:
         expose:
           - "6121"
           - "6122"
+          - "6123"
         links:
           - jobmanager
         command: taskmanager

@@ -31,7 +31,7 @@ import org.apache.flink.util.Collector
 /**
   * When Importing the Task in Apache Flink
   * EntryClass:
-  * org.apache.flink.StreamingJob
+  * cep.StreamingJob
   */
 
 
@@ -67,7 +67,9 @@ object StreamingJob {
       .keyBy(_._1)
       .window(SlidingProcessingTimeWindows.of(Time.seconds(30), Time.seconds(15)))
       .process(new MyProcessWindowFunction)
-      .writeAsText("/tmp/log.txt", FileSystem.WriteMode.OVERWRITE)
+
+    val filteredWarningStream = processedDataStream.filter(_ != "")
+    filteredWarningStream.writeAsText("/tmp/log.txt", FileSystem.WriteMode.OVERWRITE)
     // option overwrite to be able to overwrite the log file
     // otherwise the job would fail to start if a log file already exists
     // attention: restarting the job clears the log file
