@@ -8,6 +8,7 @@ import requests
 import time
 import docker
 import json
+import sys
 
 
 #### Welcome
@@ -59,9 +60,13 @@ if (dataGeneration == "y"):
             correct = False
 
 #### Setting paths to the components and getting the container id of the jobmanager
-client = docker.from_env()
-container = client.containers.get("jobmanager")
-containerId = container.id
+try:
+    client = docker.from_env()
+    container = client.containers.get("jobmanager")
+    containerId = container.id
+except docker.errors.NotFound:
+    print("Docker is not started or docker-compose up has not been run. Check if Docker is up and running")
+    sys.exit(1)
 source = os.path.join(inputPath, "CEPware", "cepware", "target", "cepware-1.5.jar")
 destination = (containerId + ":" + "/opt/flink/cepware-1.5.jar")
 

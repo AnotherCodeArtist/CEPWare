@@ -4,17 +4,37 @@ import requests
 import time
 
 args = str(sys.argv)
-if input != None:
-    print(
-        "Please enter the strategy. For simulating fire enter 'fire', for a failure enter 'failure', for a test case enter 'test', and for a normal case enter 'normal'")
-    input_var = input("Please enter the strategy.\n")
-    strategy = input_var
-else:
-    strategy = args[1]
-
 urls = ["http://localhost:7896/iot/d?k=test&i=IoT-R1", "http://localhost:7896/iot/d?k=test&i=IoT-R2",
         "http://localhost:7896/iot/d?k=test&i=IoT-R3", "http://localhost:7896/iot/d?k=test&i=IoT-R4",
         "http://localhost:7896/iot/d?k=test&i=IoT-R5"]
+if args == None:
+    print(
+        "Please enter the strategy. For simulating fire enter 'fire', for a failure enter 'failure', for a test case enter 'test', and for a normal case enter 'normal'")
+    possibleStrategies = ["fire", "normal", "failure", "test"]
+    inputStrategy = input("Please enter the strategy.\n")
+    if inputStrategy in possibleStrategies:
+        correct = True
+        strategy = inputStrategy
+    else:
+        correct = False
+    while correct == False:
+        inputStrategy = input(
+            str(inputStrategy) + " is not a valid strategy. Please enter: 'fire', 'failure', 'normal' or 'test'.\n")
+        if inputStrategy in possibleStrategies:
+            correct = True
+            strategy = inputStrategy
+        else:
+            correct = False
+    print("Do you want to send the requests to local or the server?")
+
+    anotherURL = input("For server enter 'y' for local enter 'n'\n")
+    if anotherURL == "y":
+        urls = ["http://10.25.2.146:7896/iot/d?k=test&i=IoT-R1", "http://10.25.2.146:7896/iot/d?k=test&i=IoT-R2",
+                "http://10.25.2.146:7896/iot/d?k=test&i=IoT-R3", "http://10.25.2.146:7896/iot/d?k=test&i=IoT-R4",
+                "http://10.25.2.146:7896/iot/d?k=test&i=IoT-R5"]
+
+else:
+    strategy = args[1]
 
 
 def generateData(urlList, strategyType):
@@ -70,7 +90,8 @@ def makeRequest(url, payload):
         time.sleep(.300)
     except (ConnectionError, ConnectionRefusedError, requests.exceptions.HTTPError):
         if (statusCode > 399):
-            print("Connection refused. Statuscode is: " + str(statusCode) + ". Bad request! Check if infrastructure is set up." )
+            print("Connection refused. Statuscode is: " + str(
+                statusCode) + ". Bad request! Check if infrastructure is set up.")
         else:
             print(
                 "Something went wrong while sending the request to URL: " + url + " ;with payload: " + payload + ". Statuscode: " + str(
