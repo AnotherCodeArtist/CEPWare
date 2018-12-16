@@ -4,7 +4,7 @@ import operator
 
 print(
     "This script deletes the whole CEPware infrastructure. Are you sure want to execute it?")
-input = input(" 'y' for yes and 'n' for no")
+input = input(" 'y' for yes and 'n' for no\n")
 if(input == "y"):
 	client = docker.from_env()
 	
