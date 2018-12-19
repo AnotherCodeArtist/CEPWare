@@ -10,8 +10,8 @@ if(input == "y"):
 	
 	runningContainers = ["jobmanager", "taskmanager", "cygnus", "idas", "orion", "mongo"]
 	images = ["mongo:3.6", "fiware/orion:2.0.0", "fiware/cygnus-ngsi:1.9.0", "telefonicaiot/iotagent-ul:1.7.0", "flink:1.6.1"]
-	network = "cepware_cepware"
-	volume = "cepware_mongoVol"
+	network = "setup_cepware"
+	volume = "setup_mongoVol"
 	
 	
 	for container in runningContainers:

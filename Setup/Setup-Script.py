@@ -10,7 +10,6 @@ import docker
 import json
 import sys
 
-
 #### Welcome
 print(
     "Welcome to CEPWARE. This is the automated setup. Before you run this script. Please do a docker-compose up. "
@@ -20,7 +19,7 @@ print(
 inputPath = input(
     "Please Enter the Full Path to your CEPWARE folder. \n Under Windows it could e.g. be C:\\Workspace\\CEPWARE, "
     "here we need C:\\Workspace)\n")
-checkSource = os.path.join(inputPath, "CEPWARE", "cepware", "target")
+checkSource = os.path.join(inputPath, "CEPWARE", "Application")
 try:
     os.chdir(checkSource)
     validPath = True
@@ -29,14 +28,13 @@ except FileNotFoundError:
     validPath = False
 while validPath == False:
     inputPath = input("Your path: " + inputPath + " was not correct. Please reenter the correct path!\n")
-    checkSource = os.path.join(inputPath, "CEPWARE", "cepware", "target")
+    checkSource = os.path.join(inputPath, "CEPWARE", "Application")
     try:
         os.chdir(checkSource)
         validPath = True
     except FileNotFoundError:
         print("FILE or PATH NOT FOUND! CHECK YOUR PATH TO THE CEPware FOLDER")
         validPath = False
-
 
 #### Staring the data script ?
 print("Do you also want to start the automated data script ?\n")
@@ -62,13 +60,21 @@ if (dataGeneration == "y"):
 #### Setting paths to the components and getting the container id of the jobmanager
 try:
     client = docker.from_env()
-    container = client.containers.get("jobmanager")
-    containerId = container.id
+    jobmanager = client.containers.get("jobmanager")
+    jobmanagerId = jobmanager.id
+    taskmanager = client.containers.get("taskmanager")
+    taskmanagerId = taskmanager.id
 except docker.errors.NotFound:
     print("Docker is not started or docker-compose up has not been run. Check if Docker is up and running")
     sys.exit(1)
-source = os.path.join(inputPath, "CEPware", "cepware", "target", "cepware-1.5.jar")
-destination = (containerId + ":" + "/opt/flink/cepware-1.5.jar")
+sourceTaskManagerConfig = os.path.join(inputPath, "CEPware", "Setup", "flink-conf.yaml")
+sourceMinMax = os.path.join(inputPath, "CEPware", "Application", "cep-min-max-1.6.jar")
+sourceFire = os.path.join(inputPath, "CEPware", "Application", "cep-temp-rise-1.6.jar")
+sourceFailure = os.path.join(inputPath, "CEPware", "Application", "cep-timeout-1.6.jar")
+destinationMinMax = (jobmanagerId + ":" + "/opt/flink/cep-min-max-1.6.jar")
+destinationFire = (jobmanagerId + ":" + "/opt/flink/cep-temp-rise-1.6.jar")
+destinationFailure = (jobmanagerId + ":" + "/opt/flink/cep-timeout-1.6.jar")
+destinationTaskManagerConfig = (taskmanagerId + ":" + "/opt/flink/conf/flink-conf.yaml")
 
 
 ##### Function to copy the Apache Flink Jar to the Taskmanager (Docker Apache FLink Container)
@@ -86,21 +92,31 @@ def copy_to(src, dst):
         tar.close()
 
     data = open(src + '.tar', 'rb').read()
-    container.put_archive(os.path.dirname(dst), data)
+    jobmanager.put_archive(os.path.dirname(dst), data)
 
 
 #### Copy tar file to container and execute it.
 print("Starting Apache Flink. Please be patient...")
-copy_to(source, destination)
-container.exec_run(cmd="flink run -d ./cepware-1.5.jar", workdir="/opt/flink/")
+copy_to(sourceTaskManagerConfig, destinationTaskManagerConfig)
+
+subprocess.run("docker-compose", "down")
+subprocess.run("docker-compose", "up")
+
+copy_to(sourceMinMax, destinationMinMax)
+copy_to(sourceFire, destinationFire)
+copy_to(sourceFailure, destinationFailure)
+jobmanager.exec_run(cmd="flink run -d ./cep-min-max-1.6.jar", workdir="/opt/flink/")
+jobmanager.exec_run(cmd="flink run -d ./cep-temp-rise-1.6.jar", workdir="/opt/flink/")
+jobmanager.exec_run(cmd="flink run -d ./cep-timeout-1.6.jar", workdir="/opt/flink/")
 print("Apache Flink is up and running.")
 
-
 print("Sending requests to set up the infrastructure-")
+
+
 #### Function to make Requests
 def makeRequest(inputUrl, inputHeaders, inputPayload):
     try:
-        r = requests.post(inputUrl, headers=inputHeaders ,json=inputPayload)
+        r = requests.post(inputUrl, headers=inputHeaders, json=inputPayload)
         statusCode = r.status_code
         r.raise_for_status()
         if statusCode == 200 or statusCode == 201:
@@ -115,7 +131,7 @@ def makeRequest(inputUrl, inputHeaders, inputPayload):
             print("Device is already registered! Statuscode: " + str(statusCode))
         else:
             print(
-                "Something went wrong while sending the request to URL: " + inputUrl +  ". Statuscode: " + str(
+                "Something went wrong while sending the request to URL: " + inputUrl + ". Statuscode: " + str(
                     statusCode))
 
 
@@ -211,7 +227,9 @@ def makePayLoadIdasEntities(iot, ent):
 
 
 requestDict = {"post_subscription_cygnus": (1, "cygnus", 5050),
-               "post_subscription_flink": (1, "flink", 9001),
+               "post_subscription_flink": (1, "flink-min-max", 9002),
+               "post_subscription_flink": (1, "flink-tmp-rising", 9003),
+               "post_subscription_flink": (1, "flink-failure", 9004),
                "post_create_R1": (2, "R1"), "post_create_R2": (2, "R2"),
                "post_create_R3": (2, "R3"), "post_create_R4": (2, "R4"),
                "post_create_R5": (2, "R5"), "post_provision_service_group": (3, "fill"),
@@ -225,10 +243,10 @@ for k, v in requestDict.items():
     elif v[0] == 2:
         makeRequest(urlOrionEntities, normalHeaders, makePayloadOrionEntities(v[1]))
     elif v[0] == 3:
-        #print(urlIdasServices, headersIdas, payloadIdasRegisterServiceGroup)
+        # print(urlIdasServices, headersIdas, payloadIdasRegisterServiceGroup)
         makeRequest(urlIdasServices, headersIdas, payloadIdasRegisterServiceGroup)
     else:
-        #print(makePayLoadIdasEntities(v[1], v[2]))
+        # print(makePayLoadIdasEntities(v[1], v[2]))
         makeRequest(urlIdasEntities, headersIdas, makePayLoadIdasEntities(v[1], v[2]))
 print("The infrastructure is up and running.")
 
