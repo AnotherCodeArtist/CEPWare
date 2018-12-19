@@ -5,9 +5,7 @@ import os
 import subprocess
 import tarfile
 import requests
-import time
 import docker
-import json
 import sys
 
 #### Welcome
@@ -92,17 +90,17 @@ def copy_to(src, dst):
         tar.close()
 
     data = open(src + '.tar', 'rb').read()
-    jobmanager.put_archive(os.path.dirname(dst), data)
+    if name == jobmanagerId:
+        jobmanager.put_archive(os.path.dirname(dst), data)
+    else:
+        taskmanager.put_archive(os.path.dirname(dst), data)
 
 
 #### Copy tar file to container and execute it.
 print("Starting Apache Flink. Please be patient...")
 copy_to(sourceTaskManagerConfig, destinationTaskManagerConfig)
-jobmanager.stop()
-taskmanager.stop()
-jobmanager.start()
-taskmanager.start()
-taskmanager.attrs.update()
+taskmanager.restart()
+jobmanager.restart()
 
 copy_to(sourceMinMax, destinationMinMax)
 copy_to(sourceFire, destinationFire)
@@ -229,9 +227,9 @@ def makePayLoadIdasEntities(iot, ent):
 
 
 requestDict = {"post_subscription_cygnus": (1, "cygnus", 5050),
-               "post_subscription_flink": (1, "flink-min-max", 9002),
-               "post_subscription_flink": (1, "flink-tmp-rising", 9003),
-               "post_subscription_flink": (1, "flink-failure", 9004),
+               "post_subscription_flink1": (1, "taskmanager", 9002),
+               "post_subscription_flink2": (1, "taskmanager", 9003),
+               "post_subscription_flink3": (1, "taskmanager", 9004),
                "post_create_R1": (2, "R1"), "post_create_R2": (2, "R2"),
                "post_create_R3": (2, "R3"), "post_create_R4": (2, "R4"),
                "post_create_R5": (2, "R5"), "post_provision_service_group": (3, "fill"),
@@ -245,7 +243,6 @@ for k, v in requestDict.items():
     elif v[0] == 2:
         makeRequest(urlOrionEntities, normalHeaders, makePayloadOrionEntities(v[1]))
     elif v[0] == 3:
-        # print(urlIdasServices, headersIdas, payloadIdasRegisterServiceGroup)
         makeRequest(urlIdasServices, headersIdas, payloadIdasRegisterServiceGroup)
     else:
         # print(makePayLoadIdasEntities(v[1], v[2]))
