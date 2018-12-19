@@ -4,38 +4,43 @@ import requests
 import time
 import ast
 
-args = str(sys.argv)
+
 urls = ["http://localhost:7896/iot/d?k=test&i=IoT-R1", "http://localhost:7896/iot/d?k=test&i=IoT-R2",
         "http://localhost:7896/iot/d?k=test&i=IoT-R3", "http://localhost:7896/iot/d?k=test&i=IoT-R4",
         "http://localhost:7896/iot/d?k=test&i=IoT-R5"]
-if args == None:
-    print(
-        "Please enter the strategy. For simulating fire enter 'fire', for a failure enter 'failure', for a test case enter 'test', and for a normal case enter 'normal'")
-    possibleStrategies = ["fire", "normal", "failure", "test"]
-    inputStrategy = input("Please enter the strategy.\n")
+strategy = ""
+try:
+    args = str(sys.argv)
+    strategy = ast.literal_eval(args)[2]
+except (IndexError):
+    print("Script started as standalone. Please follow the instructions.")
+
+print(
+    "Enter a strategy. For simulating fire enter 'fire', for a failure enter 'failure', for a test case enter 'test', and for a normal case enter 'normal'")
+possibleStrategies = ["fire", "normal", "failure", "test"]
+inputStrategy = input("Please enter the strategy.\n")
+if inputStrategy in possibleStrategies:
+    correct = True
+    strategy = inputStrategy
+else:
+    correct = False
+while correct == False:
+    inputStrategy = input(
+        str(inputStrategy) + " is not a valid strategy. Please enter: 'fire', 'failure', 'normal' or 'test'.\n")
     if inputStrategy in possibleStrategies:
         correct = True
         strategy = inputStrategy
     else:
         correct = False
-    while correct == False:
-        inputStrategy = input(
-            str(inputStrategy) + " is not a valid strategy. Please enter: 'fire', 'failure', 'normal' or 'test'.\n")
-        if inputStrategy in possibleStrategies:
-            correct = True
-            strategy = inputStrategy
-        else:
-            correct = False
-    print("Do you want to send the requests to local or the server?")
+print("Do you want to send the requests to local or the server?")
 
-    anotherURL = input("For server enter 'y' for local enter 'n'\n")
-    if anotherURL == "y":
-        urls = ["http://10.25.2.146:7896/iot/d?k=test&i=IoT-R1", "http://10.25.2.146:7896/iot/d?k=test&i=IoT-R2",
-                "http://10.25.2.146:7896/iot/d?k=test&i=IoT-R3", "http://10.25.2.146:7896/iot/d?k=test&i=IoT-R4",
-                "http://10.25.2.146:7896/iot/d?k=test&i=IoT-R5"]
+anotherURL = input("For server enter 'y' for local enter 'n'\n")
+if anotherURL == "y":
+    urls = ["http://10.25.2.146:7896/iot/d?k=test&i=IoT-R1", "http://10.25.2.146:7896/iot/d?k=test&i=IoT-R2",
+            "http://10.25.2.146:7896/iot/d?k=test&i=IoT-R3", "http://10.25.2.146:7896/iot/d?k=test&i=IoT-R4",
+            "http://10.25.2.146:7896/iot/d?k=test&i=IoT-R5"]
 
-else:
-    strategy = ast.literal_eval(args)[2]
+
 
 def generateData(urlList, strategyType):
     if strategyType == "normal":
@@ -79,10 +84,11 @@ def generateData(urlList, strategyType):
 
 
 def makeRequest(url, payload):
-    headers = {'Content-Type': 'application/json',
+    headers = {'Content-Type': 'text/plain',
                'fiware-service': 'cepware',
                'fiware-servicepath': '/rooms'}
     try:
+        print (url, headers, payload)
         r = requests.post(url, headers=headers, data=payload)
         statusCode = r.status_code
         r.raise_for_status()
