@@ -98,9 +98,11 @@ def copy_to(src, dst):
 #### Copy tar file to container and execute it.
 print("Starting Apache Flink. Please be patient...")
 copy_to(sourceTaskManagerConfig, destinationTaskManagerConfig)
-
-subprocess.run("docker-compose", "down")
-subprocess.run("docker-compose", "up")
+jobmanager.stop()
+taskmanager.stop()
+jobmanager.start()
+taskmanager.start()
+taskmanager.attrs.update()
 
 copy_to(sourceMinMax, destinationMinMax)
 copy_to(sourceFire, destinationFire)
