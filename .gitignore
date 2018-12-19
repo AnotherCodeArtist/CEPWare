@@ -5,105 +5,7 @@
 
 
 **/.idea/*
-cepware/target/cepware-1.5.jar.tar
-cepware/target/cepware-1.5-shaded.jar
-
-### Go ###
-# Binaries for programs and plugins
-Scripts/cepware-datagenerator-go/*.exe~
-Scripts/cepware-datagenerator-go/*.dll
-Scripts/cepware-datagenerator-go/*.so
-Scripts/cepware-datagenerator-go/*.dylib
-
-# Test binary, build with `go test -c`
-Scripts/cepware-datagenerator-go/*.test
-
-# Output of the go coverage tool, specifically when used with LiteIDE
-Scripts/cepware-datagenerator-go/*.out
-
-### Go Patch ###
-Scripts/cepware-datagenerator-go/vendor/
-Scripts/cepware-datagenerator-go/Godeps/
-
-### JetBrains ###
-# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and WebStorm
-# Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
-
-# User-specific stuff
-Scripts/cepware-datagenerator-go/.idea/**/workspace.xml
-Scripts/cepware-datagenerator-go/.idea/**/tasks.xml
-Scripts/cepware-datagenerator-go/.idea/**/usage.statistics.xml
-Scripts/cepware-datagenerator-go/.idea/**/dictionaries
-Scripts/cepware-datagenerator-go/.idea/**/shelf
-
-# Generated files
-Scripts/cepware-datagenerator-go/.idea/**/contentModel.xml
-
-# Sensitive or high-churn files
-Scripts/cepware-datagenerator-go/.idea/**/dataSources/
-Scripts/cepware-datagenerator-go/.idea/**/dataSources.ids
-Scripts/cepware-datagenerator-go/.idea/**/dataSources.local.xml
-Scripts/cepware-datagenerator-go/.idea/**/sqlDataSources.xml
-Scripts/cepware-datagenerator-go/.idea/**/dynamic.xml
-Scripts/cepware-datagenerator-go/.idea/**/uiDesigner.xml
-Scripts/cepware-datagenerator-go/.idea/**/dbnavigator.xml
-
-# Gradle
-Scripts/cepware-datagenerator-go/.idea/**/gradle.xml
-Scripts/cepware-datagenerator-go/.idea/**/libraries
-
-# Gradle and Maven with auto-import
-# When using Gradle or Maven with auto-import, you should exclude module files,
-# since they will be recreated, and may cause churn.  Uncomment if using
-# auto-import.
-# .idea/modules.xml
-# .idea/*.iml
-# .idea/modules
-
-# CMake
-Scripts/cepware-datagenerator-go/cmake-build-*/
-
-# Mongo Explorer plugin
-Scripts/cepware-datagenerator-go/.idea/**/mongoSettings.xml
-
-# File-based project format
-Scripts/cepware-datagenerator-go/*.iws
-
-# IntelliJ
-Scripts/cepware-datagenerator-go/out/
-
-# mpeltonen/sbt-idea plugin
-Scripts/cepware-datagenerator-go/.idea_modules/
-
-# JIRA plugin
-Scripts/cepware-datagenerator-go/atlassian-ide-plugin.xml
-
-# Cursive Clojure plugin
-Scripts/cepware-datagenerator-go/.idea/replstate.xml
-
-# Crashlytics plugin (for Android Studio and IntelliJ)
-Scripts/cepware-datagenerator-go/com_crashlytics_export_strings.xml
-Scripts/cepware-datagenerator-go/crashlytics.properties
-Scripts/cepware-datagenerator-go/crashlytics-build.properties
-Scripts/cepware-datagenerator-go/fabric.properties
-
-# Editor-based Rest Client
-Scripts/cepware-datagenerator-go/.idea/httpRequests
-
-# Android studio 3.1+ serialized cache file
-Scripts/cepware-datagenerator-go/.idea/caches/build_file_checksums.ser
-
-### JetBrains Patch ###
-# Comment Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-215987721
-
-# *.iml
-# modules.xml
-# .idea/misc.xml
-# *.ipr
-
-# Sonarlint plugin
-Scripts/cepware-datagenerator-go/.idea/sonarlint
-
+**/target/*
 ### PyCharm ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and WebStorm
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
@@ -304,4 +206,4 @@ Setup/.pyre/
 Setup/.venv/
 
 # ppk
-cepware.ppk
+*.ppk
