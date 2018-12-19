@@ -17,7 +17,7 @@ except (IndexError):
 
 print(
     "Enter a strategy. For simulating fire enter 'fire', for a failure enter 'failure', for a test case enter 'test', and for a normal case enter 'normal'")
-possibleStrategies = ["fire", "normal", "failure", "test"]
+possibleStrategies = ["fire", "minmax", "failure", "test"]
 inputStrategy = input("Please enter the strategy.\n")
 if inputStrategy in possibleStrategies:
     correct = True
@@ -43,35 +43,53 @@ if anotherURL == "y":
 
 
 def generateData(urlList, strategyType):
-    if strategyType == "normal":
-        payload = "t|20"
+    if strategyType == "fire":
+        for tmp in range(25, 75):
+            payload = "t|" + str(tmp)
+            for url in urlList:
+                makeRequest(url, payload)
+        ''' Optional:
+        payload = "t|70"
         cond = True
         while cond:
             for url in urlList:
                 makeRequest(url, payload)
+                '''
 
-    elif strategyType == "fire":
-        tmp = 20
-        for tmp in range(20, 50):
+    elif strategyType == "minmax":
+        for tmp in range(60, 80):
             payload = "t|" + str(tmp)
             for url in urlList:
                 makeRequest(url, payload)
-        payload = "t|50"
-        cond = True
-        while cond:
-            for url in urlList:
-                makeRequest(url, payload)
-
-    elif strategyType == "failure":
-        for tmp in range(20, 100):
+        for tmp in range(15, 0):
             payload = "t|" + str(tmp)
             for url in urlList:
                 makeRequest(url, payload)
-        payload = "t|100"
+        ''' Optional:
+        payload = "t|0"
         cond = True
         while cond:
             for url in urls:
                 makeRequest(url, payload)
+                '''
+
+    elif strategyType == "failure":
+        for tmp in range(20, 23):
+            payload = "t|" + str(tmp)
+            for url in urlList:
+                makeRequest(url, payload)
+        urlWithOutR5 = urlList.remove(4)
+        for tmp in range(24, 40):
+            payload = "t|" + str(tmp)
+            for url in urlWithOutR5:
+                makeRequest(url, payload)
+
+        '''Optional:
+        cond = True
+        while cond:
+            for url in urlWithOutR5:
+                makeRequest(url, payload)
+                '''
 
     elif strategyType == "test":
         for tmp in range(20, 25):

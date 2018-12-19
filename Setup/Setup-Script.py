@@ -37,10 +37,10 @@ while validPath == False:
 #### Staring the data script ?
 print("Do you also want to start the automated data script ?\n")
 dataGeneration = input("For yes enter 'y' otherwise 'n'.\n")
-possibleStrategies = ["fire", "normal", "failure", "test"]
+possibleStrategies = ["fire", "minmax", "failure", "test"]
 if (dataGeneration == "y"):
     inputStrategy = input(
-        "Please enter the strategy you want to simulate later. ('fire', 'failure', 'normal', 'test').\n")
+        "Please enter the strategy you want to simulate later. ('fire', 'minmax', 'failure', 'test').\n")
     if inputStrategy in possibleStrategies:
         correct = True
         strategy = inputStrategy
@@ -48,7 +48,7 @@ if (dataGeneration == "y"):
         correct = False
     while correct == False:
         inputStrategy = input(
-            str(inputStrategy) + " is not a valid strategy. Please enter: 'fire', 'failure', 'normal' or 'test'.\n")
+            str(inputStrategy) + " is not a valid strategy. Please enter: 'fire', 'minmax', 'failure' or 'test'.\n")
         if inputStrategy in possibleStrategies:
             correct = True
             strategy = inputStrategy
