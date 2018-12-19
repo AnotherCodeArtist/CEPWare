@@ -108,9 +108,10 @@ copy_to(sourceFailure, destinationFailure)
 jobmanager.exec_run(cmd="flink run -d ./cep-min-max-1.6.jar", workdir="/opt/flink/")
 jobmanager.exec_run(cmd="flink run -d ./cep-temp-rise-1.6.jar", workdir="/opt/flink/")
 jobmanager.exec_run(cmd="flink run -d ./cep-timeout-1.6.jar", workdir="/opt/flink/")
+
 print("Apache Flink is up and running.")
 
-print("Sending requests to set up the infrastructure-")
+print("Sending requests to set up the infrastructure")
 
 
 #### Function to make Requests
@@ -248,11 +249,20 @@ for k, v in requestDict.items():
         # print(makePayLoadIdasEntities(v[1], v[2]))
         makeRequest(urlIdasEntities, headersIdas, makePayLoadIdasEntities(v[1], v[2]))
 print("The infrastructure is up and running.")
+print("Deleting temporary files and cleaning up...")
+try:
+    os.remove(os.path.join(inputPath, "CEPWare", "Setup", "flink-conf.yaml.tar"))
+    os.remove(os.path.join(inputPath, "CEPWare", "Application", "cep-min-max-1.6.jar.tar"))
+    os.remove(os.path.join(inputPath, "CEPWare", "Application", "cep-temp-rise-1.6.jar.tar"))
+    os.remove(os.path.join(inputPath, "CEPWare", "Application", "cep-timeout-1.6.jar.tar"))
+except FileNotFoundError:
+    print("File not found! Aborting Clean-up and continuining with setup...")
 
 if dataGeneration == "y":
     print("Starting Data Generation now! Exit with ctrl-c!")
-    subprocess.call(
-        ["python", (os.path.join(inputPath, "CEPware", "Setup", "data-generator.py -strategy=" + strategy))])
+    pathToDataGenerator = os.path.join(inputPath, "CEPWare", "Setup", "Data-Generator.py")
+    subprocess.run(
+        ["python", pathToDataGenerator, "-strategy=", strategy])
     print("The whole system is up and running. You will now see the Data begin sent.")
 else:
     print("The system is set up and the automated Data script has not been started.")

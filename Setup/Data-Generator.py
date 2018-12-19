@@ -2,6 +2,7 @@
 import sys
 import requests
 import time
+import ast
 
 args = str(sys.argv)
 urls = ["http://localhost:7896/iot/d?k=test&i=IoT-R1", "http://localhost:7896/iot/d?k=test&i=IoT-R2",
@@ -34,8 +35,7 @@ if args == None:
                 "http://10.25.2.146:7896/iot/d?k=test&i=IoT-R5"]
 
 else:
-    strategy = args[1]
-
+    strategy = ast.literal_eval(args)[2]
 
 def generateData(urlList, strategyType):
     if strategyType == "normal":
@@ -69,7 +69,7 @@ def generateData(urlList, strategyType):
                 makeRequest(url, payload)
 
     elif strategyType == "test":
-        for tmp in range(20, 35):
+        for tmp in range(20, 25):
             payload = "t|" + str(tmp)
             for url in urlList:
                 makeRequest(url, payload)
