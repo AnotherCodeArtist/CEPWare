@@ -35,26 +35,10 @@ while validPath == False:
         print("FILE or PATH NOT FOUND! CHECK YOUR PATH TO THE CEPWare FOLDER")
         validPath = False
 
+		
 #### Staring the data script ?
 print("Do you also want to start the automated data script ?\n")
 dataGeneration = input("For yes enter 'y' otherwise 'n'.\n")
-possibleStrategies = ["fire", "minmax", "failure", "test"]
-if (dataGeneration == "y"):
-    inputStrategy = input(
-        "Please enter the strategy you want to simulate later. ('fire', 'minmax', 'failure', 'test').\n")
-    if inputStrategy in possibleStrategies:
-        correct = True
-        strategy = inputStrategy
-    else:
-        correct = False
-    while correct == False:
-        inputStrategy = input(
-            str(inputStrategy) + " is not a valid strategy. Please enter: 'fire', 'minmax', 'failure' or 'test'.\n")
-        if inputStrategy in possibleStrategies:
-            correct = True
-            strategy = inputStrategy
-        else:
-            correct = False
 
 #### Setting paths to the components and getting the container id of the jobmanager
 try:
@@ -99,9 +83,6 @@ def copy_to(src, dst):
 
 #### Copy tar file to container and execute it.
 print("Starting Apache Flink. Please be patient...")
-copy_to(sourceTaskManagerConfig, destinationTaskManagerConfig)
-taskmanager.restart()
-jobmanager.restart()
 
 copy_to(sourceMinMax, destinationMinMax)
 copy_to(sourceFire, destinationFire)
@@ -252,7 +233,6 @@ for k, v in requestDict.items():
 print("The infrastructure is up and running.")
 print("Deleting temporary files and cleaning up...")
 try:
-    os.remove(os.path.join(inputPath, "CEPWare", "Setup", "flink-conf.yaml.tar"))
     os.remove(os.path.join(inputPath, "CEPWare", "Application", "cep-min-max-1.6.jar.tar"))
     os.remove(os.path.join(inputPath, "CEPWare", "Application", "cep-temp-rise-1.6.jar.tar"))
     os.remove(os.path.join(inputPath, "CEPWare", "Application", "cep-timeout-1.6.jar.tar"))
@@ -262,13 +242,13 @@ except FileNotFoundError:
 if dataGeneration == "y":
     print("Starting Data Generation now! Exit with ctrl-c!")
     pathToDataGenerator = os.path.join(inputPath, "CEPWare", "Setup", "Data-Generator.py")
-    os = platform.system
-    if os == "windows":
+    os = platform.system()
+    if os == "Windows":
         subprocess.run(
-            ["python", pathToDataGenerator, "-strategy=", strategy])
+            ["python", pathToDataGenerator])
     else:
         subprocess.run(
-            ["python3", pathToDataGenerator, "-strategy=", strategy])
+            ["python3", pathToDataGenerator])
     print("The whole system is up and running. You will now see the Data begin sent.")
 else:
     print("The system is set up and the automated Data script has not been started.")

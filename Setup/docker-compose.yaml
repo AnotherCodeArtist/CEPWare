@@ -95,6 +95,8 @@ services:
         expose:
           - "6121"
           - "6122"
+        depends_on:
+          - jobmanager
         command: taskmanager
         links:
           - "jobmanager:jobmanager"
