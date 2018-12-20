@@ -27,7 +27,7 @@ services:
        command: -dbhost mongo -logLevel INFO
             
     cygnus:
-        image: fiware/cygnus-ngsi:1.9.0
+        image: fiware/cygnus-ngsi:1.10.0
         hostname: cygnus
         container_name: cygnus
         networks:

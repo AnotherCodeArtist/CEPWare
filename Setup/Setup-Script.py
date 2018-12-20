@@ -125,12 +125,12 @@ urlIdasEntities = 'http://localhost:4041/iot/devices'
 urlIdasServices = 'http://localhost:4041/iot/services'
 
 normalHeaders = {'Content-Type': 'application/json',
-                 'fiware-service': 'cepware',
-                 'fiware-servicepath': '/rooms'}
+                 'Fiware-service': 'cepware',
+                 'Fiware-servicepath': '/rooms'}
 
 headersIdas = {'Content-Type': 'application/json',
-               'fiware-service': 'cepware',
-               'fiware-servicepath': '/rooms',
+               'Fiware-service': 'cepware',
+               'Fiware-servicepath': '/rooms',
                'X-Auth-Token': 'a-token'}
 
 
@@ -142,17 +142,16 @@ def makePayloadSubscriptions(component, port):
                 {
                     "idPattern": ".*"
                 }
-            ]
+            ],
         },
         "notification": {
             "http": {
                 "url": "http://" + component + ":" + str(port) + "/notify"
             },
-            "attrs": [
+            "attr": [
                 "temperature"
             ]
         },
-        "throttling": 5
     }
     return payload
 
@@ -188,19 +187,12 @@ def makePayLoadIdasEntities(iot, ent):
                 "device_id": iot,
                 "entity_name": ent,
                 "entity_type": "Room",
-                "timezone": "Europe/Madrid",
+                "timezone": "Europe/Vienna",
                 "attributes": [
                     {
                         "object_id": "t",
                         "name": "temperature",
                         "type": "float"
-                    }
-                ],
-                "static_attributes": [
-                    {
-                        "name": "att_name",
-                        "type": "string",
-                        "value": "value"
                     }
                 ]
             }
