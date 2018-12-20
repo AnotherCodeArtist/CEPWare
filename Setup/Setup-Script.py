@@ -7,6 +7,7 @@ import tarfile
 import requests
 import docker
 import sys
+import platform
 
 #### Welcome
 print(
@@ -15,23 +16,23 @@ print(
 
 #### Check if the given Path is correct
 inputPath = input(
-    "Please Enter the Full Path to your CEPWARE folder. \n Under Windows it could e.g. be C:\\Workspace\\CEPWARE, "
+    "Please Enter the Full Path to your CEPWARE folder. \n Under Windows it could e.g. be C:\\Workspace\\CEPWare, "
     "here we need C:\\Workspace)\n")
-checkSource = os.path.join(inputPath, "CEPWARE", "Application")
+checkSource = os.path.join(inputPath, "CEPWare", "Application")
 try:
     os.chdir(checkSource)
     validPath = True
 except FileNotFoundError:
-    print("FILE or PATH NOT FOUND! CHECK YOUR PATH TO THE CEPware FOLDER")
+    print("FILE or PATH NOT FOUND! CHECK YOUR PATH TO THE CEPWare FOLDER")
     validPath = False
 while validPath == False:
     inputPath = input("Your path: " + inputPath + " was not correct. Please reenter the correct path!\n")
-    checkSource = os.path.join(inputPath, "CEPWARE", "Application")
+    checkSource = os.path.join(inputPath, "CEPWare", "Application")
     try:
         os.chdir(checkSource)
         validPath = True
     except FileNotFoundError:
-        print("FILE or PATH NOT FOUND! CHECK YOUR PATH TO THE CEPware FOLDER")
+        print("FILE or PATH NOT FOUND! CHECK YOUR PATH TO THE CEPWare FOLDER")
         validPath = False
 
 #### Staring the data script ?
@@ -65,10 +66,10 @@ try:
 except docker.errors.NotFound:
     print("Docker is not started or docker-compose up has not been run. Check if Docker is up and running")
     sys.exit(1)
-sourceTaskManagerConfig = os.path.join(inputPath, "CEPware", "Setup", "flink-conf.yaml")
-sourceMinMax = os.path.join(inputPath, "CEPware", "Application", "cep-min-max-1.6.jar")
-sourceFire = os.path.join(inputPath, "CEPware", "Application", "cep-temp-rise-1.6.jar")
-sourceFailure = os.path.join(inputPath, "CEPware", "Application", "cep-timeout-1.6.jar")
+sourceTaskManagerConfig = os.path.join(inputPath, "CEPWare", "Setup", "flink-conf.yaml")
+sourceMinMax = os.path.join(inputPath, "CEPWare", "Application", "cep-min-max-1.6.jar")
+sourceFire = os.path.join(inputPath, "CEPWare", "Application", "cep-temp-rise-1.6.jar")
+sourceFailure = os.path.join(inputPath, "CEPWare", "Application", "cep-timeout-1.6.jar")
 destinationMinMax = (jobmanagerId + ":" + "/opt/flink/cep-min-max-1.6.jar")
 destinationFire = (jobmanagerId + ":" + "/opt/flink/cep-temp-rise-1.6.jar")
 destinationFailure = (jobmanagerId + ":" + "/opt/flink/cep-timeout-1.6.jar")
@@ -261,8 +262,13 @@ except FileNotFoundError:
 if dataGeneration == "y":
     print("Starting Data Generation now! Exit with ctrl-c!")
     pathToDataGenerator = os.path.join(inputPath, "CEPWare", "Setup", "Data-Generator.py")
-    subprocess.run(
-        ["python", pathToDataGenerator, "-strategy=", strategy])
+    os = platform.system
+    if os == "windows":
+        subprocess.run(
+            ["python", pathToDataGenerator, "-strategy=", strategy])
+    else:
+        subprocess.run(
+            ["python3", pathToDataGenerator, "-strategy=", strategy])
     print("The whole system is up and running. You will now see the Data begin sent.")
 else:
     print("The system is set up and the automated Data script has not been started.")
