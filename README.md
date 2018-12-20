@@ -8,6 +8,7 @@ Integrating Apache FLINK Complex Event Processing and FIWARE
 
 # Requirements:
 * Docker needs at least 4 CPU cores assigned. Docker -> Settings -> Advanced -> allocate CPU to 4.
+* Python Scripts under Linux must be run with "sudo" in order to work properly.
 
 # Setup
 In order to start the whole system you need the following:
