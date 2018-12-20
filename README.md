@@ -6,6 +6,9 @@ Integrating Apache FLINK Complex Event Processing and FIWARE
 * @heiderst16
 * @sweiland
 
+# Requirements:
+* Docker needs at least 4 CPU cores assigned. Docker -> Settings -> Advanced -> allocate CPU to 4.
+
 # Setup
 In order to start the whole system you need the following:
 * Docker
