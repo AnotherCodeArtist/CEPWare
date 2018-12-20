@@ -51,18 +51,17 @@ object StreamingJob {
   class MyProcessWindowFunction extends ProcessWindowFunction[(String, String), String, String, TimeWindow] {
 
     override def process(key: String, context: Context, elements: Iterable[(String, String)], out: Collector[String]): Unit = {
-
       var messages: String = ""
-      val temperatures: Iterable[String] = elements.map(_._2).filter(_ != "")
-      val values: Iterable[Float] = temperatures.map(_.toFloat)
-      val max: Float = values.max
-      val min: Float = values.min
+      val temperatures: Iterable[Float] = elements.map(_._2.toFloat)
 
-      if (max - min >= 3) {
-        messages += key + ": room on fire!" + " temperature is rising too fast"
+      if (temperatures.head - temperatures.last <= -3) {
+        messages = key + ": room on fire! temperature is rising too fast"
       }
 
       out.collect(messages)
     }
   }
+
 }
+
+
