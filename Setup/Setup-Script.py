@@ -2,12 +2,13 @@
 # This is a Python 3 File
 
 import os
-import subprocess
-import tarfile
-import requests
-import docker
-import sys
 import platform
+import subprocess
+import sys
+import tarfile
+
+import docker
+import requests
 
 #### Welcome
 print(
@@ -35,7 +36,6 @@ while validPath == False:
         print("FILE or PATH NOT FOUND! CHECK YOUR PATH TO THE CEPWare FOLDER")
         validPath = False
 
-		
 #### Staring the data script ?
 print("Do you also want to start the automated data script ?\n")
 dataGeneration = input("For yes enter 'y' otherwise 'n'.\n")
@@ -87,9 +87,6 @@ print("Starting Apache Flink. Please be patient...")
 copy_to(sourceMinMax, destinationMinMax)
 copy_to(sourceFire, destinationFire)
 copy_to(sourceFailure, destinationFailure)
-jobmanager.exec_run(cmd="flink run -d ./cep-min-max-1.6.jar", workdir="/opt/flink/")
-jobmanager.exec_run(cmd="flink run -d ./cep-temp-rise-1.6.jar", workdir="/opt/flink/")
-jobmanager.exec_run(cmd="flink run -d ./cep-timeout-1.6.jar", workdir="/opt/flink/")
 
 print("Apache Flink is up and running.")
 
@@ -222,6 +219,11 @@ for k, v in requestDict.items():
     else:
         # print(makePayLoadIdasEntities(v[1], v[2]))
         makeRequest(urlIdasEntities, headersIdas, makePayLoadIdasEntities(v[1], v[2]))
+
+jobmanager.exec_run(cmd="flink run -d ./cep-min-max-1.6.jar", workdir="/opt/flink/")
+jobmanager.exec_run(cmd="flink run -d ./cep-temp-rise-1.6.jar", workdir="/opt/flink/")
+jobmanager.exec_run(cmd="flink run -d ./cep-timeout-1.6.jar", workdir="/opt/flink/")
+
 print("The infrastructure is up and running.")
 print("Deleting temporary files and cleaning up...")
 try:
