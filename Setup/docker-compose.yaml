@@ -46,7 +46,7 @@ services:
             - "CYGNUS_API_PORT=5080"
 
     idas:
-       image: telefonicaiot/iotagent-ul:1.7.0
+       image: telefonicaiot/iotagent-ul:1.8.0
        hostname: idas
        container_name: idas
        networks:

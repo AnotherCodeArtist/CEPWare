@@ -7,7 +7,8 @@ import ast
 print(
     "Enter a simulation strategy. You can simulate fire, failure, minimum and maximum case and test")
 possibleStrategies = ["fire", "minmax", "failure", "test"]
-inputStrategy = input("Please enter the strategy. For Fire 'fire', Failure 'failure', minmax 'minmax' and test 'test'\n")
+inputStrategy = input(
+    "Please enter the strategy. For Fire 'fire', Failure 'failure', minmax 'minmax' and test 'test'\n")
 if inputStrategy in possibleStrategies:
     correct = True
     strategy = inputStrategy
@@ -29,25 +30,24 @@ if anotherURL == "y":
             "http://10.25.2.146:7896/iot/d?k=test&i=IoT-R3", "http://10.25.2.146:7896/iot/d?k=test&i=IoT-R4",
             "http://10.25.2.146:7896/iot/d?k=test&i=IoT-R5"]
 else:
-	urls = ["http://localhost:7896/iot/d?k=test&i=IoT-R1", "http://localhost:7896/iot/d?k=test&i=IoT-R2",
-        "http://localhost:7896/iot/d?k=test&i=IoT-R3", "http://localhost:7896/iot/d?k=test&i=IoT-R4",
-        "http://localhost:7896/iot/d?k=test&i=IoT-R5"]
-
+    urls = ["http://localhost:7896/iot/d?k=test&i=IoT-R1", "http://localhost:7896/iot/d?k=test&i=IoT-R2",
+            "http://localhost:7896/iot/d?k=test&i=IoT-R3", "http://localhost:7896/iot/d?k=test&i=IoT-R4",
+            "http://localhost:7896/iot/d?k=test&i=IoT-R5"]
 
 
 def generateData(urlList, strategyType):
     if strategyType == "fire":
-        for tmp in range(25, 75):
+        for tmp in range(25, 100, 5):
             payload = "t|" + str(tmp)
             for url in urlList:
                 makeRequest(url, payload)
 
     elif strategyType == "minmax":
-        for tmp in range(60, 80):
+        for tmp in range(60, 75):
             payload = "t|" + str(tmp)
             for url in urlList:
                 makeRequest(url, payload)
-        for tmp in range(15, 0):
+        for tmp in reversed(range(0, 15)):
             payload = "t|" + str(tmp)
             for url in urlList:
                 makeRequest(url, payload)
