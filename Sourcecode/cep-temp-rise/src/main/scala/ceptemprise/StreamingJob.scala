@@ -53,7 +53,8 @@ object StreamingJob {
     override def process(key: String, context: Context, elements: Iterable[(String, String)], out: Collector[String]): Unit = {
 
       var messages: String = ""
-      val values: Iterable[Float] = elements.map(_._2.toFloat)
+      val temperatures: Iterable[String] = elements.map(_._2).filter(_ != "")
+      val values: Iterable[Float] = temperatures.map(_.toFloat)
       val max: Float = values.max
       val min: Float = values.min
 
