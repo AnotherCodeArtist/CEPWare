@@ -41,6 +41,7 @@ services:
             - "5080:5080"
         environment:
             - "CYGNUS_MONGO_HOSTS=mongo:27017"
+            - "db_prefix=cygnus_"
             - "CYGNUS_LOG_LEVEL=DEBUG"
             - "CYGNUS_SERVICE_PORT=5050"
             - "CYGNUS_API_PORT=5080"

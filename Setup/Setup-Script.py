@@ -153,6 +153,24 @@ def makePayloadSubscriptions(component, port):
     return payload
 
 
+cygnusSubscription = {
+    "description": "Subscription for component: Cygnus",
+    "subject": {
+        "entities": [
+            {
+                "idPattern": ".*"
+            }
+        ],
+    },
+    "notification": {
+        "http": {
+            "url": "http://cygnus:5050/notify"
+        },
+        "attrsFormat": "legacy"
+    }
+}
+
+
 def makePayloadOrionEntities(entity):
     payload = {
         "id": entity,
@@ -198,7 +216,7 @@ def makePayLoadIdasEntities(iot, ent):
     return payload
 
 
-requestDict = {"post_subscription_cygnus": (1, "cygnus", 5050),
+requestDict = {"post_subscription_cygnus": (0, "fill"),
                "post_subscription_flink1": (1, "taskmanager", 9002),
                "post_subscription_flink2": (1, "taskmanager", 9003),
                "post_subscription_flink3": (1, "taskmanager", 9004),
@@ -210,14 +228,15 @@ requestDict = {"post_subscription_cygnus": (1, "cygnus", 5050),
                "post_register_IoT-R4": (4, "IoT-R4", "R4"), "post_register_IoT-R5": (4, "IoT-R5", "R5")}
 
 for k, v in requestDict.items():
-    if v[0] == 1:
+    if v[0] == 0:
+        makeRequest(urlOrionSubscription, normalHeaders, cygnusSubscription)
+    elif v[0] == 1:
         makeRequest(urlOrionSubscription, normalHeaders, makePayloadSubscriptions(v[1], v[2]))
     elif v[0] == 2:
         makeRequest(urlOrionEntities, normalHeaders, makePayloadOrionEntities(v[1]))
     elif v[0] == 3:
         makeRequest(urlIdasServices, headersIdas, payloadIdasRegisterServiceGroup)
     else:
-        # print(makePayLoadIdasEntities(v[1], v[2]))
         makeRequest(urlIdasEntities, headersIdas, makePayLoadIdasEntities(v[1], v[2]))
 
 jobmanager.exec_run(cmd="flink run -d ./cep-min-max-1.6.jar", workdir="/opt/flink/")
