@@ -26,10 +26,15 @@ import org.fiware.cosmos.orion.flink.connector.OrionSource
 object StreamingJob {
 
   var timerMap: Map[String,Long] = Map()
+  var hadNoTimeOutBefore: Map[String, Boolean] = Map()
 
   def timeoutWriter(sensor: String, sensorTimer: Long, currentTime: Long): String = {
-    if (currentTime - sensorTimer > 10){
+    if (currentTime - sensorTimer > 10 && hadNoTimeOutBefore.getOrElse(sensor, true)){
+      hadNoTimeOutBefore += (sensor -> false)
       sensor + ": timeout! please check if the sensor is still working!" + "\n"
+    } else if (currentTime - sensorTimer <= 10 && !hadNoTimeOutBefore.getOrElse(sensor, true)) {
+      hadNoTimeOutBefore += (sensor -> true)
+      sensor + ": Sensor is working again!" + "\n"
     } else {
       ""
     }
