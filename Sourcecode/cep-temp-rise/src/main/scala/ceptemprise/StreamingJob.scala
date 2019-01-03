@@ -30,6 +30,8 @@ import org.fiware.cosmos.orion.flink.connector.OrionSource
 
 object StreamingJob {
 
+  var wasNotOnFireBefore: Map[String, Boolean] = Map()
+
   def main(args: Array[String]) {
     // set up the streaming execution environment
     val env = StreamExecutionEnvironment.getExecutionEnvironment
@@ -54,8 +56,13 @@ object StreamingJob {
       var messages: String = ""
       val temperatures: Iterable[Float] = elements.map(_._2.toFloat)
 
-      if (temperatures.head - temperatures.last <= -3) {
-        messages = key + ": room on fire! temperature is rising too fast"
+      if (temperatures.head - temperatures.last <= -3 && wasNotOnFireBefore.getOrElse(key, true)) {
+        messages = key + ": Room on fire! Temperature is rising too fast!"
+        wasNotOnFireBefore += (key -> false)
+      }
+      if (temperatures.head - temperatures.last > -3 && !wasNotOnFireBefore.getOrElse(key, true)) {
+        messages = key + ": Room no longer on fire! Temperature is no longer rising too fast!"
+        wasNotOnFireBefore += (key -> true)
       }
 
       out.collect(messages)
