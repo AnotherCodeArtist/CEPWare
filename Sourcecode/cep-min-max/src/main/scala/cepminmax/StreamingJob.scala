@@ -25,15 +25,27 @@ import org.fiware.cosmos.orion.flink.connector.OrionSource
 
 object StreamingJob {
 
+  var temperatures: Map[String, Float] = Map();
+
   def checkTemp(tuple: (String, String)): String = {
     var message: String = ""
+    val currTemp: Float = tuple._2.toFloat
 
-    if (tuple._2.toFloat >= 60){
-      message += tuple._1 + ": Room on fire! temperature: " + tuple._2 + "°C" + "\n"
+    if ((temperatures.getOrElse(tuple._1, 0f) < 60f) && currTemp >= 60f){
+      message = tuple._1 + ": Room on fire! Temperature: " + tuple._2 + "°C"
     }
-    if (tuple._2.toFloat <= 15){
-      message += tuple._1 + ": Do not forget to close the windows! temperature: " + tuple._2 + "°C" + "\n"
+    if ((temperatures.getOrElse(tuple._1, 0f) >= 60f) && currTemp < 60f && currTemp > 15){
+      message = tuple._1 + ": Room no longer on fire! Temperature: " + tuple._2 + "°C"
     }
+
+    if ((temperatures.getOrElse(tuple._1, 16f) > 15f) && currTemp <= 15f){
+      message = tuple._1 + ": Room is too cold! Temperature: " + tuple._2 + "°C"
+    }
+    if ((temperatures.getOrElse(tuple._1, 16f) <= 15f) && currTemp > 15f && currTemp < 60){
+      message = tuple._1 + ": Room is no longer too cold! Temperature: " + tuple._2 + "°C"
+    }
+
+    temperatures += (tuple._1 -> currTemp)
 
     message = message.stripLineEnd
     message
