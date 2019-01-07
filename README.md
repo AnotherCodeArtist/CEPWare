@@ -1,12 +1,16 @@
 # CEPWare
-Integrating Apache FLINK Complex Event Processing and FIWARE
+## Integrating Apache FLINK Complex Event Processing and FIWARE
 
 This Application integrates Apache Flink as a Complex Event Processing Unit into the FIWARE platform as a Docker Environment.
+
+
 It contains the following FIWARE components:
 * Orion Context Broker -> processes context information and sends context information on to the ORION-Flink-Connector and Cygnus Data Sink. Moreover it stores the current context data in the MongoDB
 * Cygnus Data Sink -> Stores Context Data in the MongoDB and therefor creates historical data.
 * IoT Agent Ultralight 2.0 (IDAS) -> Receveise data from the IoT sensors as HTTP Requests with the Ultralight 2.0 syntax and passes them on to the Orion Context Broker as NGSIv2 events.
 * MongoDB -> Stores the current and historical Context Data.
+
+Data is sent to Apache Flink by ORION context broker (https://github.com/ging/fiware-cosmos-orion-flink-connector/) to the Apache FLink Streaming Job.
 
 # Teammembers
 * @GregorFernbach
