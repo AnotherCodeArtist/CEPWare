@@ -21,7 +21,11 @@ This application has been built as empirical project for bachelor theses at [FH 
 Moreover it uses Apache Flink for complex event processing:
 Data is sent to Apache Flink by Orion over the [Orion-Flink-Connector](https://github.com/ging/fiware-cosmos-orion-flink-connector/) to the Apache FLink Streaming Jobs.
 
-Subscriptions are used to send the current context data from Orion to Cygnus and the Orion-Flink-Connector.
+[Subscriptions](https://fiware-iot-stack.readthedocs.io/en/latest/topics/subcriptions_and_registrations/) are used to send the current context data from Orion to [Cygnus](https://fiware-cygnus.readthedocs.io/en/r5_fiware/cygnus-ngsi/user_and_programmer_guide/connecting_orion/index.html) and the Orion-Flink-Connector.
+
+Our application uses five temperature sensors which simulate five different rooms. These sensors are simulated and appropriate entities are created in [Orion](https://fiware-orion.readthedocs.io/en/1.6.0/user/append_and_delete/index.html) and [Cygnus](https://fiware-cygnus.readthedocs.io/en/latest/cygnus-ngsi/installation_and_administration_guide/name_mappings/index.html) (which are then mapped to Orion entities).
+
+To see the according requests for subscriptions and setup of Orion and Cygnus Entities go to /Setup/Postman and open the according requests with Postman.
 
 # Requirements:
 * Docker needs at least 4 CPU cores assigned. Docker -> Settings -> Advanced -> allocate CPU to 4.
@@ -33,10 +37,11 @@ In order to start the whole system you need the following:
 * Docker Compose (is installed along with Docker)
 * Python 3 https://realpython.com/installing-python/
 * Pip3
-   * *If you're running Python 3.4+ you have Pip already installed, otherwise install it. Also you need the following         packages:*
+   * *If you're running Python 3.4+ you have Pip already installed, otherwise [install](https://pip.pypa.io/en/stable/installing/) it. Also you need the following         packages:*
       * pip3 install docker
       * pip3 install request
 * Under Windows you can optionally use Kitematic as a grafical user interface for Docker.
+* Optionally you can use [Postman](https://www.getpostman.com/downloads/) if you want to set up and test requests manually.
 
 # Structure
 In the folder "Setup" you find everything that is needed to set up the application. Here you have:
@@ -51,11 +56,12 @@ Within "Application" you will find the jar files which are needed by Apache Flin
 * Testing: Simulates a testing use case.
 * Timeout: Simulates a sensor timeout.
 
-Under "Sourcecode" you find the sourcecode of the Apache Flink Jobs which are written in Scala. It contains the following Jobs:
-* MinMax
-* Fire
-* Test
-* Timeout
+Under "Sourcecode" you find the sourcecode of the Apache Flink Streaming Jobs which are written in Scala. It contains the same as the Application folder. The Sourcecode folder is intended if you want to look up code or develop it further.
 
-#Setup
+# Setup
+To set up everything firstly install docker, python (and pip) and everything you optinally may need.
+Secondly, pull this repo.
+Thirdly, go to /Setup, open a shell (cmd/powershell/bash) and run `docker-compose up`. Wait till everything is up and running. The first docker compose up may take around 10 minutes with a solid connection.
+Thourthly, go to /Setup and run `python Setup-Script.py`
+
 [![Waffle.io - Columns and their card count](https://badge.waffle.io/AnotherCodeArtist/CEPWare.svg?columns=all)](https://waffle.io/AnotherCodeArtist/CEPWare)
