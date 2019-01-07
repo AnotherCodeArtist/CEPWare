@@ -25,6 +25,8 @@ Data is sent to Apache Flink by Orion over the [Orion-Flink-Connector](https://g
 
 Our application uses five temperature sensors which simulate five different rooms. These sensors are simulated and appropriate entities are created in [Orion](https://fiware-orion.readthedocs.io/en/1.6.0/user/append_and_delete/index.html) and [Cygnus](https://fiware-cygnus.readthedocs.io/en/latest/cygnus-ngsi/installation_and_administration_guide/name_mappings/index.html) (which are then mapped to Orion entities).
 
+Notifications from Apache Flink are sent to your smartphone via telegram.
+
 To see the according requests for subscriptions and setup of Orion and Cygnus Entities go to /Setup/Postman and open the according requests with Postman.
 
 # Requirements:
@@ -44,21 +46,23 @@ In order to start the whole system you need the following:
 * Optionally you can use [Postman](https://www.getpostman.com/downloads/) if you want to set up and test requests manually.
 
 # Structure
+###### Setup
 In the folder "Setup" you find everything that is needed to set up the application. Here you have:
 * Python Setup Script: This script automatically sets up the CEPware environment.
-* Python Data Generator: This script sends generated data according to the specified use case to Apache Flink. It offers four simulation methods:
-- Fire
-- MinMax
-- Failure
+* Python Data Generator: This script sends generated data according to the specified use case to Apache Flink. It offers three simulation methods:
+- Temperature Rising: Simulates that the temperature is rising too fast so that an alert is triggered.
+- Minimum and Maximum temperature: Simulates that the absolute maximum temperature (absolute value of 50 degrees and more) and minimum temperature (under 0 degrees) is hit so that warnings will be triggered.
+- Failure: Simulates failure of a sensor.
 * Python Docker Clear Script: This script deletes the whole CEPware docker environment.
 * docker-compose.yml: This yaml file contains the configuration for the docker environment and is used by Docker Compose.
 
+###### Application
 Within "Application" you will find the jar files which are needed by Apache Flink to set up the Streaming Jobs.
-* MinMax: This jar file contains the StreamingJob which simulates absolute maximum and minimum temperature which kick off warning messages.
-* Fire: Simulates a fire use case.
-* Testing: Simulates a testing use case.
+* MinMax: This jar file contains the StreamingJob 
+* TempRising: Simulates that the temperature is rising too fast (.
 * Timeout: Simulates a sensor timeout.
 
+###### Sourcecode
 Under "Sourcecode" you find the sourcecode of the Apache Flink Streaming Jobs which are written in Scala. It contains the same as the Application folder. The Sourcecode folder is intended if you want to look up code or develop it further.
 
 # Setup
