@@ -1,5 +1,5 @@
 # CEPWare
-## Integrating Apache FLINK Complex Event Processing and FIWARE
+###### Integrating Apache FLINK Complex Event Processing and FIWARE
 
 CEPWARE is an Application that integrates [Apache Flink](https://flink.apache.org/) as a Complex Event Processing Unit into the [FIWARE platform](https://www.fiware.org/) as a Docker Environment.
 
@@ -13,13 +13,15 @@ This application has been built as empirical project for bachelor theses at [FH 
 
 # Architecture
  CEPWare uses the basic FIWARE infrastructure and therefor contains the following FIWARE components:
-* Orion Context Broker -> processes context information and sends context information on to the ORION-Flink-Connector and Cygnus Data Sink. Moreover it stores the current context data in the MongoDB
-* Cygnus Data Sink -> Stores Context Data in the MongoDB and therefor creates historical data.
-* IoT Agent Ultralight 2.0 (IDAS) -> Receveise data from the IoT sensors as HTTP Requests with the Ultralight 2.0 syntax and passes them on to the Orion Context Broker as NGSIv2 events.
-* MongoDB -> Stores the current and historical Context Data.
+* **[Orion Context Broker](https://fiware-orion.readthedocs.io/en/master/)** -> Processes context data and sends it on to the [ORION-Flink-Connector](https://github.com/ging/fiware-cosmos-orion-flink-connector/) and Cygnus Data Sink. Moreover it stores the current context data in the MongoDB.
+* **[Cygnus Data Sink](https://readthedocs.org/projects/fiware-cygnus/)** -> Stores Context Data in the MongoDB and therefor creates historical data.
+* **[IoT Agent Ultralight 2.0 (IDAS)](https://fiware-iotagent-ul.readthedocs.io/en/latest/)** -> Receveise data from the IoT sensors as HTTP Requests with the Ultralight 2.0 syntax and passes them on to the Orion Context Broker as NGSIv2 events.
+* **MongoDB** -> Stores the current and historical Context Data in a NoSQL data base.
 
 Moreover it uses Apache Flink for complex event processing:
-Data is sent to Apache Flink by ORION context broker (https://github.com/ging/fiware-cosmos-orion-flink-connector/) to the Apache FLink Streaming Job.
+Data is sent to Apache Flink by Orion over the [Orion-Flink-Connector](https://github.com/ging/fiware-cosmos-orion-flink-connector/) to the Apache FLink Streaming Jobs.
+
+Subscriptions are used to send the current context data from Orion to Cygnus and the Orion-Flink-Connector.
 
 # Requirements:
 * Docker needs at least 4 CPU cores assigned. Docker -> Settings -> Advanced -> allocate CPU to 4.
