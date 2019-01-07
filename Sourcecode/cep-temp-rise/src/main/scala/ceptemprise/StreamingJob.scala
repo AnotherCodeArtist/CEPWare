@@ -53,19 +53,25 @@ object StreamingJob {
   class MyProcessWindowFunction extends ProcessWindowFunction[(String, String), String, String, TimeWindow] {
 
     override def process(key: String, context: Context, elements: Iterable[(String, String)], out: Collector[String]): Unit = {
-      var messages: String = ""
+      var message: String = ""
       val temperatures: Iterable[Float] = elements.map(_._2.toFloat)
 
       if (temperatures.head - temperatures.last <= -3 && wasNotOnFireBefore.getOrElse(key, true)) {
-        messages = key + ": Room on fire! Temperature is rising too fast!"
+        message = key + ": Room on fire! Temperature is rising too fast!"
         wasNotOnFireBefore += (key -> false)
       }
       if (temperatures.head - temperatures.last > -3 && !wasNotOnFireBefore.getOrElse(key, true)) {
-        messages = key + ": Room no longer on fire! Temperature is no longer rising too fast!"
+        message = key + ": Room no longer on fire! Temperature is no longer rising too fast!"
         wasNotOnFireBefore += (key -> true)
       }
 
-      out.collect(messages)
+      if (message != "") {
+        // in urlString replace INSERT_BOT_KEY with your actual bot key from Botfather and CHANNEL with your channel id
+        val urlString: String = "https://api.telegram.org/botINSERT_BOT_KEY/sendMessage?chat_id=@CHANNEL&text=" + message
+        scala.io.Source.fromURL(urlString)
+      }
+
+      out.collect(message)
     }
   }
 

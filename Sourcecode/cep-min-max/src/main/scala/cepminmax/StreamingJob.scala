@@ -44,10 +44,15 @@ object StreamingJob {
     if ((temperatures.getOrElse(tuple._1, 16f) <= 15f) && currTemp > 15f && currTemp < 60){
       message = tuple._1 + ": Room is no longer too cold! Temperature: " + tuple._2 + "°C"
     }
-
     temperatures += (tuple._1 -> currTemp)
-
     message = message.stripLineEnd
+
+    if (message != "") {
+      // in urlString replace INSERT_BOT_KEY with your actual bot key from Botfather and CHANNEL with your channel id
+      val urlString: String = "https://api.telegram.org/botINSERT_BOT_KEY/sendMessage?chat_id=@CHANNEL&text=" + message
+      scala.io.Source.fromURL(urlString)
+    }
+
     message
   }
 

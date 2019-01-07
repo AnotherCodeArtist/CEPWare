@@ -31,10 +31,10 @@ object StreamingJob {
   def timeoutWriter(sensor: String, sensorTimer: Long, currentTime: Long): String = {
     if (currentTime - sensorTimer > 10 && hadNoTimeOutBefore.getOrElse(sensor, true)){
       hadNoTimeOutBefore += (sensor -> false)
-      sensor + ": timeout! please check if the sensor is still working!" + "\n"
+      sensor + ": timeout! please check if the sensor is still working! %0A"
     } else if (currentTime - sensorTimer <= 10 && !hadNoTimeOutBefore.getOrElse(sensor, true)) {
       hadNoTimeOutBefore += (sensor -> true)
-      sensor + ": Sensor is working again!" + "\n"
+      sensor + ": Sensor is working again! %0A"
     } else {
       ""
     }
@@ -50,6 +50,13 @@ object StreamingJob {
     timerMap += (sensor -> currentTime)
     var message: String = getTimeouts(timerMap, currentTime)
     message = message.stripLineEnd
+
+    if (message != "") {
+      // in urlString replace INSERT_BOT_KEY with your actual bot key from Botfather and CHANNEL with your channel id
+      val urlString: String = "https://api.telegram.org/botINSERT_BOT_KEY/sendMessage?chat_id=@CHANNEL&text=" + message
+      scala.io.Source.fromURL(urlString)
+    }
+
     message
   }
 
