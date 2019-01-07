@@ -6,9 +6,9 @@ import ast
 
 print(
     "Enter a simulation strategy. You can simulate fire, failure, minimum and maximum case and test")
-possibleStrategies = ["fire", "minmax", "failure", "test"]
+possibleStrategies = ["fire", "minmax", "failure"]
 inputStrategy = input(
-    "Please enter the strategy. For Fire 'fire', Failure 'failure', minmax 'minmax' and test 'test'\n")
+    "Please enter the strategy. For Fire 'fire', Failure 'failure' and minmax 'minmax'\n")
 if inputStrategy in possibleStrategies:
     correct = True
     strategy = inputStrategy
@@ -54,12 +54,6 @@ def generateData(urlList, strategyType):
         for tmp in range(24, 40):
             payload = "t|" + str(tmp)
             for url in urlWithOutR5:
-                makeRequest(url, payload)
-
-    elif strategyType == "test":
-        for tmp in range(20, 25):
-            payload = "t|" + str(tmp)
-            for url in urlList:
                 makeRequest(url, payload)
 
     else:
