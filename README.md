@@ -44,6 +44,7 @@ In order to start the whole system you need the following:
       * pip3 install request
 * Under Windows you can optionally use Kitematic as a grafical user interface for Docker.
 * Optionally you can use [Postman](https://www.getpostman.com/downloads/) if you want to set up and test requests manually.
+* Telegram Messenger
 
 # Structure
 ###### Setup
@@ -66,14 +67,19 @@ Within "Application" you will find the jar files which are needed by Apache Flin
 Under "Sourcecode" you find the sourcecode of the Apache Flink Streaming Jobs which are written in Scala. It contains the same as the Application folder. The Sourcecode folder is intended if you want to look up code or develop it further.
 
 # Setup
-1. To set up everything firstly install docker, python (and pip) and everything you optinally may need.
-2. Secondly, pull this repo.
-3. Thirdly, go to /Setup, open a shell (cmd/powershell/bash) and run `docker-compose up`. Wait till everything is up and running. The first docker compose up may take around 10 minutes with a solid connection.
-4. Thourthly, go to /Setup and run `python Setup-Script.py`. 
+1. To set up everything first install docker, python (and pip) and everything you may optionally need.
+2. Afterwards, pull this repo.
+3. Go to /Setup, open a shell (cmd/powershell/bash) and run `docker-compose up`. Wait till everything is up and running. The first docker compose up may take around 10 minutes with a solid connection.
+4. Go to /Setup and run `python Setup-Script.py`. 
  - This script will prompt you to enter the destination to your CEPWare folder. Enter the absolute path to your CEPWare folder.
  - Afterwards it asks you if you also want to start the automated data script. For yes enter 'y' for no everything else.
 5. If you didn't start the data generator through the set up script, go to /Setup and run `python Data-Generator.py'.
  - This script will prompt you to enter the desired simulation method. For Fire 'fire', Failure 'failure', minmax 'minmax'.
 6. Finally to delete CEPWare go to /Setup and run `python Clear-Docker.py`. This will delete the whole CEPWare Environment.
+
+## Telegram
+1. Install Telgram Messenger and create an account (if you don't already have one). [Telegram Apps](https://telegram.org/apps)
+2. Join the [channel](https://t.me/Cepware).
+3. Boom, you should get your notifications in there (if you send appropriate data)!
 
 [![Waffle.io - Columns and their card count](https://badge.waffle.io/AnotherCodeArtist/CEPWare.svg?columns=all)](https://waffle.io/AnotherCodeArtist/CEPWare)
