@@ -22,17 +22,10 @@ while correct == False:
         strategy = inputStrategy
     else:
         correct = False
-print("Do you want to send the requests to local or the server?")
 
-anotherURL = input("For server enter 'y' for local enter 'n'\n")
-if anotherURL == "y":
-    urls = ["http://10.25.2.146:7896/iot/d?k=test&i=IoT-R1", "http://10.25.2.146:7896/iot/d?k=test&i=IoT-R2",
-            "http://10.25.2.146:7896/iot/d?k=test&i=IoT-R3", "http://10.25.2.146:7896/iot/d?k=test&i=IoT-R4",
-            "http://10.25.2.146:7896/iot/d?k=test&i=IoT-R5"]
-else:
-    urls = ["http://localhost:7896/iot/d?k=test&i=IoT-R1", "http://localhost:7896/iot/d?k=test&i=IoT-R2",
-            "http://localhost:7896/iot/d?k=test&i=IoT-R3", "http://localhost:7896/iot/d?k=test&i=IoT-R4",
-            "http://localhost:7896/iot/d?k=test&i=IoT-R5"]
+urls = ["http://localhost:7896/iot/d?k=test&i=IoT-R1", "http://localhost:7896/iot/d?k=test&i=IoT-R2",
+        "http://localhost:7896/iot/d?k=test&i=IoT-R3", "http://localhost:7896/iot/d?k=test&i=IoT-R4",
+        "http://localhost:7896/iot/d?k=test&i=IoT-R5"]
 
 
 def generateData(urlList, strategyType):
