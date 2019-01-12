@@ -1,5 +1,5 @@
 # CEPWare
-###### Integrating Apache FLINK Complex Event Processing and FIWARE
+###### Integrating Apache FLINK Complex Event Processing into the FIWARE platform.
 
 CEPWARE is an Application that integrates [Apache Flink](https://flink.apache.org/) as a Complex Event Processing Unit into the [FIWARE platform](https://www.fiware.org/) as a Docker Environment.
 
@@ -23,14 +23,14 @@ Data is sent to Apache Flink by Orion over the [Orion-Flink-Connector](https://g
 
 [Subscriptions](https://fiware-iot-stack.readthedocs.io/en/latest/topics/subcriptions_and_registrations/) are used to send the current context data from Orion to [Cygnus](https://fiware-cygnus.readthedocs.io/en/r5_fiware/cygnus-ngsi/user_and_programmer_guide/connecting_orion/index.html) and the Orion-Flink-Connector.
 
-Our application uses five temperature sensors which simulate five different rooms. These sensors are simulated and appropriate entities are created in [Orion](https://fiware-orion.readthedocs.io/en/1.6.0/user/append_and_delete/index.html) and [Cygnus](https://fiware-cygnus.readthedocs.io/en/latest/cygnus-ngsi/installation_and_administration_guide/name_mappings/index.html) (which are then mapped to Orion entities).
+Our application uses five temperature sensors which simulate five different rooms. These sensors are simulated as either Postman requests or with the provided data-generator script. The appropriate entities are created in [Orion](https://fiware-orion.readthedocs.io/en/1.6.0/user/append_and_delete/index.html), the IoT Agent (IDAS), [Cygnus](https://fiware-cygnus.readthedocs.io/en/latest/cygnus-ngsi/installation_and_administration_guide/name_mappings/index.html) and the mappings to the context broker entities.
 
-Notifications from Apache Flink are sent to your smartphone via telegram.
+The results of the CEP actions are sent to your smartphone via Telegram Notifications.
 
 To see the according requests for subscriptions and setup of Orion and Cygnus Entities go to /Setup/Postman and open the according requests with Postman.
 
 # Requirements:
-* Docker needs at least 4 CPU cores assigned. Docker -> Settings -> Advanced -> allocate CPU to 4.
+* Docker needs at least 4 CPU cores assigned. Docker -> Settings -> Advanced -> allocate CPU to 4. Therefor you need at least 2 physical cores.
 * Python Scripts under Linux must be run with "sudo" in order to work properly.
 
 # Software Requirements
