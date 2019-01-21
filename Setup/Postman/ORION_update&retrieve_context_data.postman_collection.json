@@ -48,6 +48,41 @@
 			"response": []
 		},
 		{
+			"name": "GET_Orion_Entities",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "fiware-service",
+						"type": "text",
+						"value": "cepware"
+					},
+					{
+						"key": "fiware-servicepath",
+						"type": "text",
+						"value": "/rooms"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:1026/v2/entities",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1026",
+					"path": [
+						"v2",
+						"entities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "PUT_update_existing_flat",
 			"request": {
 				"method": "PUT",

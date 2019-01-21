@@ -28,7 +28,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": \"R1\",\r\n    \"type\": \"Room\",\r\n    \"temperature\": {\r\n\t\t\"type\" : \"Float\",\r\n\t\t\"value\": 22\r\n\t}\r\n}\r\n    \r\n    "
+					"raw": "{\n    \"id\": \"R1\",\n    \"type\": \"Room\",\n    \"temperature\": {\n        \"type\": \"Float\",\n        \"value\": 22\n    }\n}"
 				},
 				"url": {
 					"raw": "http://localhost:1026/v2/entities",
@@ -68,7 +68,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": \"R2\",\r\n    \"type\": \"Room\",\r\n    \"temperature\": {\r\n\t\t\"type\" : \"Float\",\r\n\t\t\"value\": 22\r\n\t}\r\n}\r\n    \r\n    "
+					"raw": "{\n    \"id\": \"R2\",\n    \"type\": \"Room\",\n    \"temperature\": {\n        \"type\": \"Float\",\n        \"value\": 22\n    }\n}"
 				},
 				"url": {
 					"raw": "http://localhost:1026/v2/entities",
@@ -108,7 +108,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": \"R3\",\r\n    \"type\": \"Room\",\r\n    \"temperature\": {\r\n\t\t\"type\" : \"Float\",\r\n\t\t\"value\": 22.5\r\n\t}\r\n}\r\n    \r\n    "
+					"raw": "{\n    \"id\": \"R3\",\n    \"type\": \"Room\",\n    \"temperature\": {\n        \"type\": \"Float\",\n        \"value\": 22.5\n    }\n}"
 				},
 				"url": {
 					"raw": "http://localhost:1026/v2/entities",
@@ -148,7 +148,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": \"R4\",\r\n    \"type\": \"Room\",\r\n    \"temperature\": {\r\n\t\t\"type\" : \"Float\",\r\n\t\t\"value\": 23.1\r\n\t}\r\n}\r\n    \r\n    "
+					"raw": "{\n    \"id\": \"R4\",\n    \"type\": \"Room\",\n    \"temperature\": {\n        \"type\": \"Float\",\n        \"value\": 23.1\n    }\n}"
 				},
 				"url": {
 					"raw": "http://localhost:1026/v2/entities",
@@ -188,7 +188,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": \"R5\",\r\n    \"type\": \"Room\",\r\n    \"temperature\": {\r\n\t\t\"type\" : \"Float\",\r\n\t\t\"value\": 22.9\r\n\t}\r\n}\r\n    \r\n    "
+					"raw": "{\n    \"id\": \"R5\",\n    \"type\": \"Room\",\n    \"temperature\": {\n        \"type\": \"Float\",\n        \"value\": 22.9\n    }\n}"
 				},
 				"url": {
 					"raw": "http://localhost:1026/v2/entities",

@@ -34,7 +34,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "t|16"
+					"raw": "t|35\n"
 				},
 				"url": {
 					"raw": "http://localhost:7896/iot/d?k=test&i=IoT-R1",
@@ -84,7 +84,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "t|13"
+					"raw": "t|16"
 				},
 				"url": {
 					"raw": "http://localhost:7896/iot/d?i=IoT-R2&k=test",

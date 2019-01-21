@@ -40,7 +40,7 @@
 			"response": []
 		},
 		{
-			"name": "POST-1_subscribe_to_ORION",
+			"name": "POST-_subscribe_to_ORION",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -59,7 +59,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"description\": \"Notify Cygnus of all context changes\",\r\n  \"subject\": {\r\n    \"entities\": [\r\n      {\r\n        \"idPattern\": \".*\"\r\n      }\r\n    ]\r\n  },\r\n  \"notification\": {\r\n    \"http\": {\r\n      \"url\": \"http://cygnus:5050/notify\"\r\n    },\r\n    \"attrsFormat\": \"legacy\"\r\n  },\r\n  \"throttling\": 5\r\n}"
+					"raw": "{\r\n    \"description\": \"Subscription for component: Cygnus\",\r\n    \"subject\": {\r\n        \"entities\": [\r\n            {\r\n                \"idPattern\": \".*\"\r\n            }\r\n        ]\r\n    },\r\n    \"notification\": {\r\n        \"http\": {\r\n            \"url\": \"http://cygnus:5050/notify\"\r\n        },\r\n        \"attrsFormat\": \"legacy\"\r\n    }\r\n}"
 				},
 				"url": {
 					"raw": "http://localhost:1026/v2/subscriptions/",

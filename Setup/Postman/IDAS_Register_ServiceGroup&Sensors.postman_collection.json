@@ -33,7 +33,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"services\": [\r\n   {\r\n     \"apikey\":      \"test\",\r\n     \"cbroker\":     \"http://orion:1026\",\r\n     \"entity_type\": \"Room\",\r\n     \"resource\":    \"/iot/d\"\r\n   } ]\r\n }\r\n "
+					"raw": "{\n    \"services\": [\n        {\n            \"apikey\": \"test\",\n            \"cbroker\": \"http://orion:1026\",\n            \"entity_type\": \"Room\",\n            \"resource\": \"/iot/d\"\n        }\n    ]\n}"
 				},
 				"url": {
 					"raw": "http://localhost:4041/iot/services",
@@ -78,7 +78,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"devices\": [\r\n  { \"device_id\": \"IoT-R1\",\r\n    \"entity_name\": \"R1\",\r\n    \"entity_type\": \"Room\",\r\n    \"timezone\": \"Europe/Madrid\",\r\n    \"attributes\": [\r\n    { \"object_id\": \"t\",\r\n      \"name\": \"temperature\",\r\n      \"type\": \"float\"\r\n    } ],\r\n \"static_attributes\": [\r\n    { \"name\": \"att_name\",\r\n      \"type\": \"string\",\r\n      \"value\": \"value\"\r\n    }]}]}"
+					"raw": "{\n    \"devices\": [\n        {\n            \"device_id\": \"IoT-R1\",\n            \"entity_name\": \"R1\",\n            \"entity_type\": \"Room\",\n            \"timezone\": \"Europe/Madrid\",\n            \"attributes\": [\n                {\n                    \"object_id\": \"t\",\n                    \"name\": \"temperature\",\n                    \"type\": \"float\"\n                }\n            ],\n            \"static_attributes\": [\n                {\n                    \"name\": \"att_name\",\n                    \"type\": \"string\",\n                    \"value\": \"value\"\n                }\n            ]\n        }\n    ]\n}"
 				},
 				"url": {
 					"raw": "http://localhost:4041/iot/devices",
@@ -123,7 +123,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"devices\": [\r\n  { \"device_id\": \"IoT-R2\",\r\n    \"entity_name\": \"R2\",\r\n    \"entity_type\": \"Room\",\r\n    \"timezone\": \"Europe/Madrid\",\r\n    \"attributes\": [\r\n    { \"object_id\": \"t\",\r\n      \"name\": \"temperature\",\r\n      \"type\": \"float\"\r\n    } ],\r\n \"static_attributes\": [\r\n    { \"name\": \"att_name\",\r\n      \"type\": \"string\",\r\n      \"value\": \"value\"\r\n    }]}]}"
+					"raw": "{\n    \"devices\": [\n        {\n            \"device_id\": \"IoT-R2\",\n            \"entity_name\": \"R2\",\n            \"entity_type\": \"Room\",\n            \"timezone\": \"Europe/Madrid\",\n            \"attributes\": [\n                {\n                    \"object_id\": \"t\",\n                    \"name\": \"temperature\",\n                    \"type\": \"float\"\n                }\n            ],\n            \"static_attributes\": [\n                {\n                    \"name\": \"att_name\",\n                    \"type\": \"string\",\n                    \"value\": \"value\"\n                }\n            ]\n        }\n    ]\n}"
 				},
 				"url": {
 					"raw": "http://localhost:4041/iot/devices",
@@ -168,7 +168,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"devices\": [\r\n  { \"device_id\": \"IoT-R3\",\r\n    \"entity_name\": \"R3\",\r\n    \"entity_type\": \"Room\",\r\n    \"timezone\": \"Europe/Madrid\",\r\n    \"attributes\": [\r\n    { \"object_id\": \"t\",\r\n      \"name\": \"temperature\",\r\n      \"type\": \"float\"\r\n    } ],\r\n \"static_attributes\": [\r\n    { \"name\": \"att_name\",\r\n      \"type\": \"string\",\r\n      \"value\": \"value\"\r\n    }]}]}"
+					"raw": "{\n    \"devices\": [\n        {\n            \"device_id\": \"IoT-R3\",\n            \"entity_name\": \"R3\",\n            \"entity_type\": \"Room\",\n            \"timezone\": \"Europe/Madrid\",\n            \"attributes\": [\n                {\n                    \"object_id\": \"t\",\n                    \"name\": \"temperature\",\n                    \"type\": \"float\"\n                }\n            ],\n            \"static_attributes\": [\n                {\n                    \"name\": \"att_name\",\n                    \"type\": \"string\",\n                    \"value\": \"value\"\n                }\n            ]\n        }\n    ]\n}"
 				},
 				"url": {
 					"raw": "http://localhost:4041/iot/devices",
@@ -213,7 +213,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"devices\": [\r\n  { \"device_id\": \"IoT-R4\",\r\n    \"entity_name\": \"R4\",\r\n    \"entity_type\": \"Room\",\r\n    \"timezone\": \"Europe/Madrid\",\r\n    \"attributes\": [\r\n    { \"object_id\": \"t\",\r\n      \"name\": \"temperature\",\r\n      \"type\": \"float\"\r\n    } ],\r\n \"static_attributes\": [\r\n    { \"name\": \"att_name\",\r\n      \"type\": \"string\",\r\n      \"value\": \"value\"\r\n    }]}]}"
+					"raw": "{\n    \"devices\": [\n        {\n            \"device_id\": \"IoT-R4\",\n            \"entity_name\": \"R4\",\n            \"entity_type\": \"Room\",\n            \"timezone\": \"Europe/Madrid\",\n            \"attributes\": [\n                {\n                    \"object_id\": \"t\",\n                    \"name\": \"temperature\",\n                    \"type\": \"float\"\n                }\n            ],\n            \"static_attributes\": [\n                {\n                    \"name\": \"att_name\",\n                    \"type\": \"string\",\n                    \"value\": \"value\"\n                }\n            ]\n        }\n    ]\n}"
 				},
 				"url": {
 					"raw": "http://localhost:4041/iot/devices",
@@ -258,7 +258,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"devices\": [\r\n  { \"device_id\": \"IoT-R5\",\r\n    \"entity_name\": \"R5\",\r\n    \"entity_type\": \"Room\",\r\n    \"timezone\": \"Europe/Madrid\",\r\n    \"attributes\": [\r\n    { \"object_id\": \"t\",\r\n      \"name\": \"temperature\",\r\n      \"type\": \"float\"\r\n    } ],\r\n \"static_attributes\": [\r\n    { \"name\": \"att_name\",\r\n      \"type\": \"string\",\r\n      \"value\": \"value\"\r\n    }]}]}"
+					"raw": "{\n    \"devices\": [\n        {\n            \"device_id\": \"IoT-R5\",\n            \"entity_name\": \"R5\",\n            \"entity_type\": \"Room\",\n            \"timezone\": \"Europe/Madrid\",\n            \"attributes\": [\n                {\n                    \"object_id\": \"t\",\n                    \"name\": \"temperature\",\n                    \"type\": \"float\"\n                }\n            ],\n            \"static_attributes\": [\n                {\n                    \"name\": \"att_name\",\n                    \"type\": \"string\",\n                    \"value\": \"value\"\n                }\n            ]\n        }\n    ]\n}"
 				},
 				"url": {
 					"raw": "http://localhost:4041/iot/devices",
