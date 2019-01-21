@@ -77,9 +77,19 @@ Under "Sourcecode" you find the sourcecode of the Apache Flink Streaming Jobs wh
  - This script will prompt you to enter the desired simulation method. For Fire 'fire', Failure 'failure', minmax 'minmax'.
 6. Finally to delete CEPWare go to /Setup and run `python Clear-Docker.py`. This will delete the whole CEPWare Environment.
 
-## Telegram
+## Telegram CEPWare Channel:
 1. Install Telgram Messenger and create an account (if you don't already have one). [Telegram Apps](https://telegram.org/apps)
 2. Join the [channel](https://t.me/Cepware).
 3. Boom, you should get your notifications in there (if you send appropriate data)!
+
+## Create Your own Channel and Bot:
+This Approach describes how you can alter the Sourcecode to send your own Messages to your own Telegram Channel
+1. Create a new Telegram bot with the Help of Botfather (see https://core.telegram.org/bots for help)
+2. Note the token you get from Botfather for your new Bot
+3. Create a new public Channel in Telegram
+4. Now add your created Bot to the Channel and give him Admin privileges
+5. In the Sourcecode, you need to send a Request to a URL where you insert the token of your Bot and your Channel ID
+(https://api.telegram.org/botINSERT_BOT_KEY/sendMessage?chat_id=@CHANNEL&text=)
+6. You can append your message at the end of the url after "text="
 
 [![Waffle.io - Columns and their card count](https://badge.waffle.io/AnotherCodeArtist/CEPWare.svg?columns=all)](https://waffle.io/AnotherCodeArtist/CEPWare)
